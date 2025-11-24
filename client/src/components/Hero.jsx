@@ -11,9 +11,8 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          // ↓ Make overlay very light for brightness
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)), url(${heroImage})`,
-          filter: "brightness(1.15) contrast(1.1)", // ↓ Makes image pop
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.06), rgba(255,255,255,0.06)), url(${heroImage})`,
+          filter: "brightness(1.25) contrast(1.15) saturate(1.2)",
         }}
       />
 

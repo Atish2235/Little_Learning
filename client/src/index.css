@@ -184,64 +184,80 @@
 }
 
 /* ---------------------------------------
-   🌈 FUN FLOATING / BOUNCING ANIMATIONS
+   🌈 SUPER BRIGHT / BIG / RESPONSIVE SHAPES
 ----------------------------------------- */
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-28px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes float-delayed {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(20px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(28px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes bounce-slow {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-14px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes bounce-slower {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes cloud {
-  0% { transform: translateX(0px); }
-  50% { transform: translateX(40px); }
-  100% { transform: translateX(0px); }
+  0% { transform: translateX(0); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes cloud-delayed {
-  0% { transform: translateX(0px); }
-  50% { transform: translateX(-35px); }
-  100% { transform: translateX(0px); }
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-50px); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes spin-slow {
-  0% { transform: rotate(0deg); }
+  0% { transform: rotate(0); }
   100% { transform: rotate(360deg); }
 }
 
+/* ✨ Animation Utilities */
 .animate-float { animation: float 5s ease-in-out infinite; }
 .animate-float-delayed { animation: float-delayed 6s ease-in-out infinite; }
 .animate-bounce-slow { animation: bounce-slow 4s ease-in-out infinite; }
 .animate-bounce-slower { animation: bounce-slower 5s ease-in-out infinite; }
 .animate-cloud { animation: cloud 10s ease-in-out infinite; }
 .animate-cloud-delayed { animation: cloud-delayed 12s ease-in-out infinite; }
-.animate-spin-slow { animation: spin-slow 18s linear infinite; }
-.animate-rotate { animation: spin-slow 25s linear infinite; }
+.animate-bright-spin { animation: spin-slow 20s linear infinite; }
 
-@keyframes fade-in {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* -------------------------------
+   🌈 RESPONSIVE SHAPE SIZING 
+-------------------------------- */
+.shape-lg {
+  width: 80px;
+  height: 80px;
 }
 
-.animate-fade-in {
-  animation: fade-in 1.2s ease-out both;
+.shape-xl {
+  width: 110px;
+  height: 110px;
+}
+
+.shape-xxl {
+  width: 150px;
+  height: 150px;
+}
+
+/* Mobile sizes */
+@media (max-width: 600px) {
+  .shape-lg  { width: 55px; height: 55px; }
+  .shape-xl  { width: 80px; height: 80px; }
+  .shape-xxl { width: 115px; height: 115px; }
 }
