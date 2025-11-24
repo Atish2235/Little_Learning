@@ -5,14 +5,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import Home from "@/pages/Home";
-import GalleryFull from "@/pages/GalleryFull";  // 🔥 NEW PAGE
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/gallery-full" component={GalleryFull} /> {/* 🔥 New Route */}
+      
       <Route component={NotFound} />
     </Switch>
   );
