@@ -49,7 +49,7 @@ export default function WelcomePage({ onComplete }) {
         {/* Logo Container */}
         <div className="relative animate-scale-in">
           <img
-            src="/attached_assets/generated_images/Little_logo.png"
+            src={new URL('/attached_assets/generated_images/Little_logo.png', import.meta.url).href}
             alt="Little Learnings Logo"
             className="w-96 h-96 md:w-[500px] md:h-[500px] object-contain drop-shadow-2xl animate-float mx-auto"
           />
