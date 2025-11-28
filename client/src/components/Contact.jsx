@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,6 +18,7 @@ const Schema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -33,50 +35,64 @@ export default function Contact() {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log("Form data:", data);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const res = await fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    toast({
-      title: "Message Sent! 🎉",
-      description: "Thank you for contacting us. We'll get back to you soon!",
-    });
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
 
-    reset();
+      toast({
+        title: "Message Sent! 🎉",
+        description: "Thank you for contacting us. We'll get back to you soon!",
+      });
+
+      reset();
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Something went wrong",
+        description: "Unable to send message. Please try again later.",
+        // variant: 'destructive' // optional: use if your toast supports variants
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section
       id="contact"
-      className="relative py-24 bg-gradient-to-b from-blue-50 via-pink-50 to-yellow-50 overflow-hidden"
+      className="relative py-16 md:py-24 bg-white overflow-hidden"
     >
-      {/* Floating blobs */}
-      <div className="absolute top-10 left-10 w-40 h-40 bg-pink-300/40 blur-3xl rounded-full animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-48 h-48 bg-yellow-300/40 blur-3xl rounded-full animate-float-delayed"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-extrabold mb-4 text-gray-800">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-800">
             Get In{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-pink-600 bg-clip-text text-transparent">
-              Touch
-            </span>
+            <span className="text-purple-600">Touch</span>
           </h2>
-          <p className="text-lg text-gray-600 font-serif max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 font-serif max-w-2xl mx-auto">
             Have questions? We'd love to hear from you! Send us a message and we’ll reply quickly.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start max-w-6xl mx-auto">
           {/* Form */}
-          <Card className="rounded-3xl shadow-xl bg-white/80 backdrop-blur-sm">
-            <CardContent className="p-8 space-y-6">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <Card className="rounded-2xl md:rounded-3xl shadow-xl bg-white">
+            <CardContent className="p-6 md:p-8 space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
                 <div>
                   <Input
                     {...register("name")}
                     placeholder="Your Name"
-                    className="w-full rounded-xl"
+                    className="w-full rounded-lg md:rounded-xl"
                   />
                   {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
                 </div>
@@ -86,7 +102,7 @@ export default function Contact() {
                     {...register("email")}
                     type="email"
                     placeholder="Your Email"
-                    className="w-full rounded-xl"
+                    className="w-full rounded-lg md:rounded-xl"
                   />
                   {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                 </div>
@@ -95,7 +111,7 @@ export default function Contact() {
                   <Input
                     {...register("phone")}
                     placeholder="Phone Number"
-                    className="w-full rounded-xl"
+                    className="w-full rounded-lg md:rounded-xl"
                   />
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
                 </div>
@@ -105,7 +121,7 @@ export default function Contact() {
                     {...register("message")}
                     placeholder="Your Message"
                     rows={4}
-                    className="w-full rounded-xl"
+                    className="w-full rounded-lg md:rounded-xl"
                   />
                   {errors.message && (
                     <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
@@ -114,48 +130,50 @@ export default function Contact() {
 
                 <Button
                   type="submit"
-                  className="w-full rounded-full py-4 text-lg font-semibold bg-gradient-to-r from-pink-500 to-purple-600 hover:scale-[1.03] transition-all"
+                  disabled={loading}
+                  className="w-full rounded-full py-3 md:py-4 text-base md:text-lg font-semibold bg-purple-600 text-white hover:opacity-95 transition-all"
+                  aria-busy={loading}
                 >
-                  Send Message ✨
+                  {loading ? "Sending..." : "Send Message ✨"}
                 </Button>
               </form>
             </CardContent>
           </Card>
 
           {/* Contact Info */}
-          <div className="space-y-6 w-full">
-            <Card className="rounded-3xl shadow-lg bg-white/80 backdrop-blur-sm hover:scale-[1.02] transition p-5">
+          <div className="space-y-4 w-full">
+            <Card className="rounded-2xl md:rounded-3xl shadow-lg bg-white hover:scale-[1.02] transition p-4 md:p-5">
               <div className="flex items-center gap-4">
-                <div className="bg-purple-200 p-4 rounded-full">
-                  <Phone className="h-6 w-6 text-purple-700" />
+                <div className="p-3 md:p-4 rounded-full bg-white">
+                  <Phone className="h-5 w-5 md:h-6 md:w-6 text-purple-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-800">Phone</h3>
-                  <p className="text-gray-600">(555) 123-4567</p>
+                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Phone</h3>
+                  <p className="text-gray-600 text-sm md:text-base">(555) 123-4567</p>
                 </div>
               </div>
             </Card>
 
-            <Card className="rounded-3xl shadow-lg bg-white/80 backdrop-blur-sm hover:scale-[1.02] transition p-5">
+            <Card className="rounded-2xl md:rounded-3xl shadow-lg bg-white hover:scale-[1.02] transition p-4 md:p-5">
               <div className="flex items-center gap-4">
-                <div className="bg-blue-200 p-4 rounded-full">
-                  <Mail className="h-6 w-6 text-blue-700" />
+                <div className="p-3 md:p-4 rounded-full bg-white">
+                  <Mail className="h-5 w-5 md:h-6 md:w-6 text-blue-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-800">Email</h3>
-                  <p className="text-gray-600">info@littlelearnings.com</p>
+                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Email</h3>
+                  <p className="text-gray-600 text-sm md:text-base">info@littlelearnings.com</p>
                 </div>
               </div>
             </Card>
 
-            <Card className="rounded-3xl shadow-lg bg-white/80 backdrop-blur-sm hover:scale-[1.02] transition p-5">
+            <Card className="rounded-2xl md:rounded-3xl shadow-lg bg-white hover:scale-[1.02] transition p-4 md:p-5">
               <div className="flex items-center gap-4">
-                <div className="bg-green-200 p-4 rounded-full">
-                  <MapPin className="h-6 w-6 text-green-700" />
+                <div className="p-3 md:p-4 rounded-full bg-white">
+                  <MapPin className="h-5 w-5 md:h-6 md:w-6 text-green-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-800">Address</h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Address</h3>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     123 Learning Lane <br />
                     Education City, EC 12345
                   </p>

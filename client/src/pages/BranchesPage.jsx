@@ -1,0 +1,148 @@
+import React from "react";
+import Navigation from "@/components/Navigation";
+import { Link } from "react-router-dom";
+import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+
+const BranchesPage = () => {
+  const branches = [
+    {
+      name: "Little Learnings – Pune",
+      address: "Sunrise Apartments, Baner, Pune – 411045",
+      phone: "+91 98765 43210",
+      timing: "Mon–Sat • 9:00 AM – 6:00 PM",
+      map: "https://maps.google.com",
+    },
+    {
+      name: "Little Learnings – Mumbai",
+      address: "Harmony Towers, Andheri West, Mumbai – 400053",
+      phone: "+91 91234 56789",
+      timing: "Mon–Sat • 9:00 AM – 6:00 PM",
+      map: "https://maps.google.com",
+    },
+    {
+      name: "Little Learnings – Nashik",
+      address: "Green Park, Gangapur Road, Nashik – 422013",
+      phone: "+91 99887 76655",
+      timing: "Mon–Sat • 9:00 AM – 6:00 PM",
+      map: "https://maps.google.com",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="relative min-h-[18vh] sm:min-h-[22vh] md:min-h-[28vh] flex flex-col items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.10), rgba(255,255,255,0.10)), url(${heroImage})`,
+            filter: "brightness(1.18) contrast(1.10) saturate(1.15)",
+            backgroundPosition: "center top",
+            backgroundSize: "cover",
+          }}
+        />
+        {/* Overlay for better text contrast */}
+        <div className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to top, rgba(30, 27, 75, 0.55), rgba(255,255,255,0.20) 80%, transparent 100%)"
+          }}
+        />
+        {/* Decorative blurred shapes (mobile only) */}
+        <div className="md:hidden absolute inset-0 pointer-events-none z-10">
+          <div className="absolute -top-4 -right-4 w-20 h-20 bg-pink-300 opacity-30 rounded-full filter blur-2xl translate-x-4"></div>
+          <div className="absolute top-14 left-4 w-16 h-16 bg-yellow-300 opacity-25 rounded-full filter blur-2xl"></div>
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-24 h-24 bg-blue-300 opacity-20 rounded-full filter blur-3xl"></div>
+        </div>
+        {/* Title and Breadcrumb */}
+        <div className="relative z-20 w-full flex flex-col items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg py-8">
+            Our Branches
+          </h1>
+          <nav className="mt-2 flex justify-center" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2 text-lg md:text-xl text-gray-500 font-medium bg-white/60 rounded-full px-4 py-1 shadow-sm backdrop-blur-sm">
+              <li>
+                <a
+                  href="/"
+                  className="hover:underline text-pink-600 font-semibold"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <span className="mx-1">/</span>
+              </li>
+              <li className="text-purple-700 font-bold">Branches</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      {/* Decorative Shapes */}
+      <div className="absolute -top-10 -left-10 w-40 h-40 bg-pink-300/30 rounded-full blur-2xl"></div>
+      <div className="absolute top-20 -right-10 w-52 h-52 bg-purple-300/30 rounded-full blur-2xl"></div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl"></div>
+
+      {/* Page Container */}
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-8 md:pt-12 pb-20">
+        {/* Branch Cards */}
+        <div className="mt-8 md:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {branches.map((branch, index) => (
+            <div
+              key={index}
+              className="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl md:rounded-3xl border border-white p-4 md:p-6 hover:scale-105 transition-transform"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text mb-3">
+                {branch.name}
+              </h3>
+
+              <p className="text-gray-700 mb-2">
+                <strong>📍 Address:</strong> <br />
+                {branch.address}
+              </p>
+
+              <p className="text-gray-700 mb-2">
+                <strong>📞 Phone:</strong> {branch.phone}
+              </p>
+
+              <p className="text-gray-700 mb-4">
+                <strong>⏰ Timings:</strong> {branch.timing}
+              </p>
+
+              <a
+                href={branch.map}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block w-full text-center bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 px-4 rounded-xl shadow-md hover:opacity-90 transition"
+              >
+                View on Map
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Add New Branch CTA */}
+        <div className="text-center mt-20">
+          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Want Little Learnings in Your City?
+          </h2>
+          <p className="text-gray-700 mt-2">
+            We’re expanding! Partner with us to bring quality early education to more children.
+          </p>
+
+          { /* changed: use Link from react-router-dom for client-side navigation */ }
+          <Link
+            to="/franchise"
+            className="inline-block mt-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-3 rounded-2xl text-lg shadow-lg hover:opacity-90 transition"
+          >
+            Explore Franchise Opportunities
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BranchesPage;

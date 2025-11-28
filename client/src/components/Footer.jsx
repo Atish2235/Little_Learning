@@ -1,6 +1,19 @@
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function Footer() {
+  const [, setLocation] = useLocation();
+
+  const goTo = (id) => {
+    setLocation("/");
+    setTimeout(() => {
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      else window.location.hash = `#${id}`;
+    }, 80);
+  };
+
   return (
     <footer className="relative bg-gradient-to-b from-blue-100 via-pink-100 to-yellow-100 pt-20 pb-10 overflow-hidden">
 
@@ -35,12 +48,36 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-gray-800">Quick Links</h3>
             <ul className="space-y-2 text-gray-700">
-              <li><a href="#home" className="hover:text-purple-600 transition">Home</a></li>
-              <li><a href="#about" className="hover:text-purple-600 transition">About Us</a></li>
-              <li><a href="#programs" className="hover:text-purple-600 transition">Programs</a></li>
-              <li><a href="#why" className="hover:text-purple-600 transition">Why Choose Us</a></li>
-              <li><a href="#gallery" className="hover:text-purple-600 transition">Gallery</a></li>
-              <li><a href="#contact" className="hover:text-purple-600 transition">Contact</a></li>
+              <li>
+                <button type="button" onClick={() => goTo("home")} className="hover:text-purple-600 transition">
+                  Home
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => setLocation("/about")} className="hover:text-purple-600 transition">
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => goTo("programs")} className="hover:text-purple-600 transition">
+                  Programs
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => goTo("why")} className="hover:text-purple-600 transition">
+                  Why Choose Us
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => goTo("gallery")} className="hover:text-purple-600 transition">
+                  Gallery
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => goTo("contact")} className="hover:text-purple-600 transition">
+                  Contact
+                </button>
+              </li>
             </ul>
           </div>
 

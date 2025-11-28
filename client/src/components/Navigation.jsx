@@ -2,28 +2,40 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import LogoComponent from "./Logo";
+import { useLocation } from "wouter";
+import { Link } from "react-router-dom";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [, setLocation] = useLocation();
+
+  // navigation items used by mobile menu and other sections
+  const items = [
+    { label: "Home", id: "home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Programs", href: "/programs" },
+    { label: "Why Choose Us", href: "/why" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Contact", href: "/contact" },
+    { label: "Branches", href: "/branches" },
+    { label: "Franchise", href: "/franchise" },
+  ];
+
+  // navigate to root then scroll to an id (pass null/undefined to just go home)
+  const goTo = (id) => {
+    setLocation("/");
+    setTimeout(() => {
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      else window.location.hash = `#${id}`;
+    }, 80);
+  };
 
   return (
     <>
       {/* Floating Logo */}
       <LogoComponent />
-
-      {/* Text beside Logo */}
-      <div
-        className="
-          fixed
-          top-[25px]      /* 🔼 moved upward */
-          left-[190px]   /* positioned beside logo */
-          z-[60]
-        "
-      >
-        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-          Little Learningss
-        </h1>
-      </div>
 
       <nav
         className="
@@ -40,28 +52,67 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* NAVBAR ROW */}
           <div className="flex justify-end items-center py-4 gap-6">
-
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
-              <a href="#home" className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200">
+              {/* Home */}
+              <button
+                type="button"
+                onClick={() => goTo("home")}
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
                 Home
-              </a>
+              </button>
 
-              <a href="#about" className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200">
+              {/* About */}
+              <button
+                onClick={() => setLocation("/about")}
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
                 About
-              </a>
+              </button>
 
-              <a href="#programs" className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200">
+              {/* Programs */}
+              <button
+                type="button"
+                onClick={() => setLocation("/programs")}
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
                 Programs
-              </a>
+              </button>
 
-              <a href="#gallery" className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200">
+              {/* Gallery */}
+              <button
+                type="button"
+                onClick={() => setLocation("/gallery")}
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
                 Gallery
-              </a>
+              </button>
 
-              <a href="#contact" className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200">
+              {/* Contact */}
+              <button
+                type="button"
+                onClick={() => setLocation("/contact")}
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
                 Contact
-              </a>
+              </button>
+
+              {/* Branches */}
+              <Link
+                to="/branches"
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
+                Branches
+              </Link>
+
+              {/* Franchise */}
+              <Link
+                to="/franchise"
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
+                Franchise
+              </Link>
 
               <Button
                 className="
@@ -88,34 +139,70 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-white/90 backdrop-blur-xl rounded-b-3xl shadow-lg pb-6">
-            <div className="px-6 py-4 space-y-3">
-              <a href="#home" className="block text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow">
+            {/* constrained height + native momentum scrolling for mobile */}
+            <div
+              className="px-6 py-4 space-y-3 max-h-[75vh] overflow-y-auto overscroll-contain"
+              style={{ WebkitOverflowScrolling: "touch" }}
+            >
+              <button
+                type="button"
+                onClick={() => { goTo("home"); setIsOpen(false); }}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
                 Home
-              </a>
+              </button>
 
-              <a href="#about" className="block text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow">
+              <button
+                onClick={() => { setLocation("/about"); setIsOpen(false); }}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
                 About
-              </a>
+              </button>
 
-              <a href="#programs" className="block text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow">
+              <button
+                type="button"
+                onClick={() => { setLocation("/programs"); setIsOpen(false); }}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
                 Programs
-              </a>
+              </button>
 
-              <a href="#why" className="block text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow">
-                Why Choose Us
-              </a>
-
-              <a href="#gallery" className="block text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow">
+              <button
+                type="button"
+                onClick={() => { setLocation("/gallery"); setIsOpen(false); }}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
                 Gallery
-              </a>
+              </button>
 
-              <a href="#contact" className="block text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow">
+              <button
+                type="button"
+                onClick={() => { setLocation("/contact"); setIsOpen(false); }}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
                 Contact
-              </a>
+              </button>
+
+              <Link
+                to="/branches"
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
+                Branches
+              </Link>
+
+              <Link
+                to="/franchise"
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
+                Franchise
+              </Link>
 
               <Button
+                onClick={() => setIsOpen(false)}
                 className="
-                  w-full rounded-full py-4 text-lg font-bold
+                  block w-full rounded-full py-4 text-lg font-bold
                   bg-gradient-to-r from-pink-500 to-purple-600 
                   text-white shadow-md hover:shadow-xl hover:scale-105
                   transition-all

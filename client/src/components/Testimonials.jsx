@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Star, Sparkles } from "lucide-react";
+import { Star } from "lucide-react";
 import parent1Image from "../../attached_assets/generated_images/parent_testimonial_headshot_1.png";
 import parent2Image from "../../attached_assets/generated_images/parent_testimonial_headshot_2.png";
 
@@ -38,12 +38,8 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-20 bg-gradient-to-b from-blue-50 via-pink-50 to-yellow-50 overflow-hidden"
+      className="relative py-20 bg-white"
     >
-      {/* Decorative floating sparkles */}
-      <Sparkles className="absolute top-20 left-16 w-14 h-14 text-pink-300 animate-float opacity-70" />
-      <Sparkles className="absolute bottom-24 right-20 w-10 h-10 text-purple-300 animate-float-delayed opacity-60" />
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-14">
           <h2 className="text-5xl font-extrabold text-gray-800 mb-4">
@@ -67,13 +63,7 @@ export default function Testimonials() {
                 hover:scale-[1.03] transition-all duration-300 relative
               "
             >
-              {/* Colorful corner ribbon */}
-              <div
-                className={`
-                  absolute -top-3 left-6 w-24 h-6 rounded-full 
-                  bg-gradient-to-r ${t.color} shadow-md
-                `}
-              ></div>
+              {/* plain card, no colored ribbon */}
 
               {/* Stars */}
               <div className="flex gap-1 mb-4 mt-3">
@@ -83,7 +73,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-gray-700 font-serif italic leading-relaxed mb-6 bg-white/60 p-4 rounded-2xl shadow-sm">
+              <p className="text-gray-700 font-serif italic leading-relaxed mb-6">
                 “{t.quote}”
               </p>
 

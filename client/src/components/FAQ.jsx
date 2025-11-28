@@ -5,7 +5,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
-import { Baby, School, Clock, MessageSquare, ShieldCheck } from "lucide-react";
+import { Baby, School, MessageSquare, ShieldCheck } from "lucide-react";
 
 export default function FAQ() {
   return (
@@ -49,12 +49,15 @@ export default function FAQ() {
               className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
             >
               <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <Baby className="w-6 h-6 text-pink-500" />
-                What age groups do you accept? 👶
+                <School className="w-6 h-6 text-pink-500" />
+                What curriculum does Little Learningss follow?
               </AccordionTrigger>
 
               <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
-                We welcome children aged <strong>2 to 6 years</strong> with specially designed programs for toddlers, Pre-K, and kindergarten prep.
+                We follow an international early-years curriculum blended with
+                Indian culture, heritage and values, fully aligned with the NEP.
+                Our approach focuses on holistic development, creativity,
+                language skills, and experiential learning.
               </AccordionContent>
             </AccordionItem>
 
@@ -64,12 +67,14 @@ export default function FAQ() {
               className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
             >
               <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <School className="w-6 h-6 text-blue-500" />
-                Do you offer trial classes? 🎓
+                <Baby className="w-6 h-6 text-blue-500" />
+                What age groups do you admit?
               </AccordionTrigger>
 
               <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
-                Yes! Parents can book a <strong>free demo class</strong> and let their child experience our joyful learning environment.
+                We offer programs for children <strong>2 to 5 years</strong> (Playgroup to Sr. KG)
+                along with <strong>Day Care for ages 2 to 10 years</strong>.
+                Admission is open throughout the year based on seat availability.
               </AccordionContent>
             </AccordionItem>
 
@@ -79,13 +84,15 @@ export default function FAQ() {
               className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
             >
               <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <Clock className="w-6 h-6 text-yellow-500" />
-                What are your school timings? ⏰
+                <ShieldCheck className="w-6 h-6 text-yellow-500" />
+                Is the school environment safe for children?
               </AccordionTrigger>
 
               <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
-                Regular school hours are <strong>9:00 AM – 12:30 PM</strong>.  
-                Extended daycare is available upon request.
+                Yes. Our campus is <strong>CCTV-monitored</strong>, child-safe, hygienic, and
+                managed by trained staff. We maintain a
+                <strong> low student–teacher ratio</strong> to ensure personal care,
+                attention and safety.
               </AccordionContent>
             </AccordionItem>
 
@@ -95,12 +102,15 @@ export default function FAQ() {
               className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
             >
               <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <MessageSquare className="w-6 h-6 text-green-500" />
-                How do parents stay updated? 📱
+                <School className="w-6 h-6 text-green-500" />
+                Do you help children transition to primary school?
               </AccordionTrigger>
 
               <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
-                Daily photos, reports, and progress updates are shared through our <strong>parent communication app</strong>.
+                Yes. We have tie-ups with reputed primary schools to ensure a
+                smooth and comfortable transition.
+                Our <strong>UKG program</strong> includes school-readiness training,
+                early academics, and confidence-building skills.
               </AccordionContent>
             </AccordionItem>
 
@@ -110,13 +120,15 @@ export default function FAQ() {
               className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
             >
               <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <ShieldCheck className="w-6 h-6 text-purple-500" />
-                How safe is the school environment? 🛡️
+                <MessageSquare className="w-6 h-6 text-purple-500" />
+                How do parents stay updated about their child’s progress?
               </AccordionTrigger>
 
               <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
-                Safety is our top priority!  
-                We follow strict child-safe policies, CCTV monitoring, and secure entry protocols.
+                We provide a <strong>Parent Communication App</strong> that allows parents
+                to receive daily updates, photos, activity reports, attendance, and
+                important announcements—keeping you connected with your child’s
+                learning journey.
               </AccordionContent>
             </AccordionItem>
 

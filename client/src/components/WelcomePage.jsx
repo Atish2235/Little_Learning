@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "wouter";
 
 export default function WelcomePage({ onComplete }) {
-  const [, setLocation] = useLocation();
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
