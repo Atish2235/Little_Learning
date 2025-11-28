@@ -91,36 +91,127 @@ export default function Programs() {
           strong development.
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10 justify-center">
-          {programs.map((p, i) => (
-            <div
-              key={i}
-              className={`
-                rounded-[28px] md:rounded-[40px] shadow-xl p-6 md:p-10 pt-10 md:pt-12 relative text-center 
-                bg-white hover:scale-[1.03] transition cursor-pointer
-                border-[5px] ${p.border}
-              `}
-            >
-              <h3 className="text-lg md:text-xl font-bold text-gray-800">
-                {p.title}
-              </h3>
-              <p className="text-xs md:text-sm text-gray-500">{p.age}</p>
+        {/* Scoped CSS: hide scrollbars, marquee animation, pause on hover/focus */}
+        <style>{`
+          .no-scrollbar::-webkit-scrollbar { display: none; }
+          .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 
-              <img
-                src={p.image}
-                alt={p.title}
-                className="w-full h-28 sm:h-32 md:h-32 object-cover rounded-xl mt-4 md:mt-6 shadow-md"
-              />
+          .marquee {
+            /* allow vertical overflow so hover lift & shadows are visible while keeping horizontal clipping */
+            overflow-x: hidden;
+            overflow-y: visible;
+            position: relative;
+          }
+          .marquee-track {
+            display: flex;
+            gap: 0.5rem; /* decreased gap for tighter layout */
+            align-items: stretch;
+            animation: marquee 24s linear infinite;
+            will-change: transform;
+          }
+          .marquee:hover .marquee-track,
+          .marquee:focus-within .marquee-track {
+            animation-play-state: paused;
+          }
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* track duplicated so -50% shows seamless loop */
+          }
+        `}</style>
 
-              <div className="text-gray-700 text-sm mt-4 md:mt-6 leading-relaxed font-serif">
-                {p.description}
+        {/* Marquee container - renders cards twice for seamless loop */}
+        <div
+          className="w-full -mx-4 px-4 marquee no-scrollbar"
+          role="region"
+          aria-label="Programs marquee"
+          tabIndex={0}
+        >
+          <div className="marquee-track" aria-hidden="false">
+            {/* First pass */}
+            {programs.map((p, i) => (
+              <div
+                key={`first-${i}`}
+                // increased padding in points and make hover lift visible
+                style={{ padding: "8pt" }}
+                className={`
+                  flex-shrink-0
+                  w-full max-w-sm sm:w-[340px] md:w-[400px] xl:w-[440px]   /* slightly reduced widths */
+                  min-w-[280px]                                      /* slightly reduced min width */
+                  mx-3
+                  rounded-[16px] md:rounded-[20px] shadow-md hover:shadow-2xl relative text-center
+                  bg-white transform transition-all duration-200 cursor-pointer
+                  border-[5px] ${p.border}
+                  min-h-[260px] md:min-h-[320px]
+                  overflow-visible z-10
+                `}
+                // replace scale with vertical lift on hover via Tailwind classes (hover:-translate-y-1)
+              >
+                <h3 className="text-lg md:text-xl font-bold text-gray-800">
+                  {p.title}
+                </h3>
+                <p className="text-xs md:text-sm text-gray-500">{p.age}</p>
+
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-24 sm:h-28 md:h-32 object-cover rounded-lg mt-3 md:mt-4 shadow-md"
+                />
+
+                <div
+                  className="text-gray-700 text-sm mt-3 md:mt-3 leading-relaxed font-serif"
+                  style={{ padding: "6pt 4pt" }} /* content padding in points */
+                >
+                  {p.description}
+                </div>
+
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mt-3 md:mt-3 border border-gray-300">
+                  <Plus className="text-gray-700" />
+                </div>
               </div>
+            ))}
 
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mt-4 md:mt-6 border border-gray-300">
-                <Plus className="text-gray-700" />
+            {/* Duplicate pass for seamless loop */}
+            {programs.map((p, i) => (
+              <div
+                key={`dup-${i}`}
+                aria-hidden="true"
+                style={{ padding: "8pt" }}
+                className={`
+                  flex-shrink-0
+                  w-full max-w-sm sm:w-[340px] md:w-[400px] xl:w-[440px]   /* slightly reduced widths */
+                  min-w-[280px]                                      /* slightly reduced min width */
+                  mx-3
+                  rounded-[16px] md:rounded-[20px] shadow-md hover:shadow-2xl relative text-center
+                  bg-white transform transition-all duration-200 cursor-pointer
+                  border-[5px] ${p.border}
+                  min-h-[260px] md:min-h-[320px]
+                  overflow-visible z-10
+                `}
+              >
+                <h3 className="text-lg md:text-xl font-bold text-gray-800">
+                  {p.title}
+                </h3>
+                <p className="text-xs md:text-sm text-gray-500">{p.age}</p>
+
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-24 sm:h-28 md:h-32 object-cover rounded-lg mt-3 md:mt-4 shadow-md"
+                />
+
+                <div
+                  className="text-gray-700 text-sm mt-3 md:mt-3 leading-relaxed font-serif"
+                  style={{ padding: "6pt 4pt" }}
+                >
+                  {p.description}
+                </div>
+
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mt-3 md:mt-3 border border-gray-300">
+                  <Plus className="text-gray-700" />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
 
 const BranchesPage = () => {
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   const branches = [
     {
       name: "Little Learnings – Pune",
@@ -29,7 +33,7 @@ const BranchesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section */}
@@ -38,8 +42,8 @@ const BranchesPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.10), rgba(255,255,255,0.10)), url(${heroImage})`,
-            filter: "brightness(1.18) contrast(1.10) saturate(1.15)",
+            backgroundImage: `url(${heroImage})`,
+            filter: "brightness(1.05) contrast(1.05) saturate(1.05)",
             backgroundPosition: "center top",
             backgroundSize: "cover",
           }}
@@ -47,15 +51,11 @@ const BranchesPage = () => {
         {/* Overlay for better text contrast */}
         <div className="absolute inset-0"
           style={{
-            background: "linear-gradient(to top, rgba(30, 27, 75, 0.55), rgba(255,255,255,0.20) 80%, transparent 100%)"
+            background: "linear-gradient(to top, rgba(30, 27, 75, 0.10), rgba(255,255,255,0.10) 80%, transparent 100%)"
           }}
         />
         {/* Decorative blurred shapes (mobile only) */}
-        <div className="md:hidden absolute inset-0 pointer-events-none z-10">
-          <div className="absolute -top-4 -right-4 w-20 h-20 bg-pink-300 opacity-30 rounded-full filter blur-2xl translate-x-4"></div>
-          <div className="absolute top-14 left-4 w-16 h-16 bg-yellow-300 opacity-25 rounded-full filter blur-2xl"></div>
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-24 h-24 bg-blue-300 opacity-20 rounded-full filter blur-3xl"></div>
-        </div>
+        {/* Removed blurred shapes for a cleaner, brighter look */}
         {/* Title and Breadcrumb */}
         <div className="relative z-20 w-full flex flex-col items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg py-8">
@@ -81,9 +81,7 @@ const BranchesPage = () => {
       </section>
 
       {/* Decorative Shapes */}
-      <div className="absolute -top-10 -left-10 w-40 h-40 bg-pink-300/30 rounded-full blur-2xl"></div>
-      <div className="absolute top-20 -right-10 w-52 h-52 bg-purple-300/30 rounded-full blur-2xl"></div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl"></div>
+      {/* Removed decorative shapes for a clean white background */}
 
       {/* Page Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-8 md:pt-12 pb-20">
@@ -92,7 +90,14 @@ const BranchesPage = () => {
           {branches.map((branch, index) => (
             <div
               key={index}
-              className="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl md:rounded-3xl border border-white p-4 md:p-6 hover:scale-105 transition-transform"
+              className="bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl md:rounded-3xl border-2 border-gray-100 p-4 md:p-6 hover:scale-105 transition-transform
+                hover:bg-gradient-to-br hover:from-pink-50 hover:to-purple-50
+                relative
+                before:content-[''] before:absolute before:inset-0 before:rounded-2xl md:before:rounded-3xl
+                before:bg-gradient-to-r before:from-pink-200 before:via-purple-200 before:to-blue-200
+                before:opacity-10 before:-z-10
+                "
+              style={{ zIndex: 1, overflow: "hidden" }}
             >
               <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text mb-3">
                 {branch.name}

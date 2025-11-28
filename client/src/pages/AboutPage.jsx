@@ -20,7 +20,7 @@ function Philosophy() {
       <h3 className="text-2xl font-bold text-pink-700 mb-2 font-serif">
         Our Philosophy
       </h3>
-      <p className="text-gray-700 text-lg leading-relaxed font-serif">
+      <p className="text-gray-700 leading-relaxed font-serif">
         At{" "}
         <span className="font-bold text-pink-600">Little Learningss</span>, we
         believe childhood is a time to wonder, explore and shine. Our preschool
@@ -28,18 +28,18 @@ function Philosophy() {
         of Indian culture, values and traditions, creating an environment where
         children grow into confident, kind and curious individuals.
       </p>
-      <p className="text-gray-700 text-lg leading-relaxed mt-4 font-serif">
+      <p className="text-gray-700 leading-relaxed mt-4 font-serif">
         Every day at Little Learningss is thoughtfully designed to nurture the
         mind, heart and character of each child. Through play-based learning,
         hands-on activities and joyful celebrations, we help children discover
         their abilities while staying deeply connected to their roots.
       </p>
-      <p className="text-gray-700 text-lg leading-relaxed mt-4 font-serif">
+      <p className="text-gray-700 leading-relaxed mt-4 font-serif">
         With trained, loving educators and a warm, safe environment, Little
         Learningss feels like a second home — where children are encouraged to
         try, enjoy, learn and grow at their own pace.
       </p>
-      <p className="text-pink-700 font-semibold mt-4 text-lg font-serif">
+      <p className="text-pink-700 font-semibold mt-4 font-serif">
         At Little Learningss, we don’t just prepare children for school…
         <br />
         <span className="text-xl">We prepare them for life.</span>
@@ -86,7 +86,7 @@ function VisionMission() {
           <div className="text-2xl">🌟</div>
           <div>
             <div className="font-semibold text-gray-800">Vision</div>
-            <div className="text-sm text-gray-600 mt-1">
+            <div className="text-gray-600 mt-1">
               To shape children who think independently, embrace their heritage
               and are ready for the world ahead. We envision Little Learningss as
               a warm, inspiring space where lifelong learning begins.
@@ -99,7 +99,7 @@ function VisionMission() {
           <div className="text-2xl">🎯</div>
           <div>
             <div className="font-semibold text-gray-800">Mission</div>
-            <div className="text-sm text-gray-600 mt-1">
+            <div className="text-gray-600 mt-1">
               To nurture confident, curious and compassionate young learners
               through a global curriculum enriched with Indian culture and values.
               We aim to make learning joyful, holistic and rooted in strong
@@ -113,8 +113,12 @@ function VisionMission() {
 }
 
 const AboutPage = () => {
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+    <div className="min-h-screen bg-white text-base md:text-lg">
       {/* Navigation */}
       <Navigation />
 
@@ -124,30 +128,25 @@ const AboutPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.10), rgba(255,255,255,0.10)), url(${heroImage})`,
-            filter: "brightness(1.18) contrast(1.10) saturate(1.15)",
+            backgroundImage: `url(${heroImage})`,
+            filter: "brightness(1.05) contrast(1.05) saturate(1.05)",
             backgroundPosition: "center top",
             backgroundSize: "cover",
           }}
         />
         {/* Overlay for better text contrast */}
-        <div className="absolute inset-0"
+        <div
+          className="absolute inset-0"
           style={{
-            background: "linear-gradient(to top, rgba(30, 27, 75, 0.55), rgba(255,255,255,0.20) 80%, transparent 100%)"
+            background:
+              "linear-gradient(to top, rgba(30, 27, 75, 0.10), rgba(255,255,255,0.10) 80%, transparent 100%)",
           }}
         />
-        {/* Decorative blurred shapes (mobile only) */}
-        <div className="md:hidden absolute inset-0 pointer-events-none z-10">
-          <div className="absolute -top-4 -right-4 w-20 h-20 bg-pink-300 opacity-30 rounded-full filter blur-2xl translate-x-4"></div>
-          <div className="absolute top-14 left-4 w-16 h-16 bg-yellow-300 opacity-25 rounded-full filter blur-2xl"></div>
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-24 h-24 bg-blue-300 opacity-20 rounded-full filter blur-3xl"></div>
-        </div>
-        {/* Title centered over image */}
+        {/* Title and Breadcrumb */}
         <div className="relative z-20 w-full flex flex-col items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg py-8">
             About Little Learnings
           </h1>
-          {/* Breadcrumb inside hero image */}
           <nav className="mt-2 flex justify-center" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-lg md:text-xl text-gray-500 font-medium bg-white/60 rounded-full px-4 py-1 shadow-sm backdrop-blur-sm">
               <li>

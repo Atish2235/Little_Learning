@@ -2,6 +2,10 @@ import React from 'react'
 import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
 
 const WhyChooseUsPage = () => {
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
       {/* Hero Section */}

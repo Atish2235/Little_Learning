@@ -17,6 +17,8 @@ import Layout from "@/components/Layout";
 import Navigation from "./components/Navigation";
 import BranchesPage from "./pages/BranchesPage";
 import FranchisePage from "./pages/FranchisePage";
+import CarrerPage from "./pages/CarrerPage";
+import EnrollPage from "@/pages/EnrollPage"; // <-- added import
 
 // ⭐ NEW IMPORT — Floating Buttons
 import FloatingContactButtons from "./components/FloatingContactButtons";
@@ -32,6 +34,8 @@ function Router() {
       <Route path="/contact" component={ContactPage} />
       <Route path="/branches" component={BranchesPage} />
       <Route path="/franchise" component={FranchisePage} />
+      <Route path="/career" component={CarrerPage} />
+      <Route path="/enroll" component={EnrollPage} /> {/* <-- new enroll route */}
       <Route component={NotFound} />
     </Switch>
   );

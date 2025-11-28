@@ -19,6 +19,7 @@ export default function Navigation() {
     { label: "Contact", href: "/contact" },
     { label: "Branches", href: "/branches" },
     { label: "Franchise", href: "/franchise" },
+    { label: "Career", href: "/career" }, // New Career link
   ];
 
   // navigate to root then scroll to an id (pass null/undefined to just go home)
@@ -51,9 +52,9 @@ export default function Navigation() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* NAVBAR ROW */}
-          <div className="flex justify-end items-center py-4 gap-6">
+          <div className="flex justify-end items-center py-4 gap-1">
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-1">
               {/* Home */}
               <button
                 type="button"
@@ -114,8 +115,18 @@ export default function Navigation() {
                 Franchise
               </Link>
 
+              {/* Career - New Link */}
+              <Link
+                to="/career"
+                className="text-lg font-semibold text-gray-700 px-4 py-2 rounded-full hover:bg-yellow-200"
+              >
+                Career
+              </Link>
+
               <Button
+                onClick={() => setLocation("/enroll")}
                 className="
+                  ml-6
                   rounded-full px-6 py-3 text-lg font-bold
                   bg-gradient-to-r from-pink-500 to-purple-600 
                   text-white shadow-md hover:shadow-xl hover:scale-105
@@ -199,8 +210,17 @@ export default function Navigation() {
                 Franchise
               </Link>
 
-              <Button
+              {/* Career - New Link in Mobile Menu */}
+              <Link
+                to="/career"
                 onClick={() => setIsOpen(false)}
+                className="block w-full text-left text-lg font-semibold text-gray-700 bg-yellow-100 px-4 py-3 rounded-2xl shadow"
+              >
+                Career
+              </Link>
+
+              <Button
+                onClick={() => { setLocation("/enroll"); setIsOpen(false); }}
                 className="
                   block w-full rounded-full py-4 text-lg font-bold
                   bg-gradient-to-r from-pink-500 to-purple-600 

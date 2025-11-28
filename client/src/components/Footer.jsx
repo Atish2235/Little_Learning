@@ -16,7 +16,6 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-b from-blue-100 via-pink-100 to-yellow-100 pt-20 pb-10 overflow-hidden">
-
       {/* Wavy Top Border */}
       <svg
         className="absolute top-0 left-0 w-full h-28 text-white"
@@ -30,24 +29,29 @@ export default function Footer() {
       <div className="absolute top-16 left-10 w-36 h-36 bg-pink-300/40 blur-3xl rounded-full animate-float"></div>
       <div className="absolute bottom-16 right-10 w-40 h-40 bg-blue-300/40 blur-3xl rounded-full animate-float-delayed"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 text-gray-800">
-
-        <div className="grid md:grid-cols-3 gap-14">
-
+      <div className="max-w-8xl mx-auto px-4 relative z-10 text-gray-800 ml-8 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ml-0 md:ml-8">
           {/* Logo & Description */}
-          <div>
-            <h2 className="text-3xl font-extrabold mb-3 bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">
-              Little Learnings
-            </h2>
-            <p className="text-gray-700 font-serif leading-relaxed">
-              A joyful place where kids learn, explore, and grow with confidence, creativity, and curiosity.
-            </p>
+          <div className="flex flex-col sm:flex-row items-center sm:items-center">
+            <img
+              src="/attached_assets/generated_images/Little_logo.png"
+              alt="Little Learnings Logo"
+              className="w-auto h-24 sm:h-28 md:h-32 lg:h-36 object-contain mb-0 sm:mr-6 self-center"
+            />
+            <div className="text-center sm:text-left">
+              <h2 className="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-4 bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">
+                Little Learnings
+              </h2>
+              <p className="text-gray-700 font-serif leading-relaxed">
+                A joyful place where kids learn, explore, and grow with confidence, creativity, and curiosity.
+              </p>
+            </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-800">Quick Links</h3>
-            <ul className="space-y-2 text-gray-700">
+          <div className="flex flex-col items-center">
+            <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-gray-800 text-center">Quick Links</h3>
+            <ul className="space-y-2 text-gray-700 text-center">
               <li>
                 <button type="button" onClick={() => goTo("home")} className="hover:text-purple-600 transition">
                   Home
@@ -82,31 +86,26 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-800">Contact Info</h3>
-
-            <div className="space-y-4 text-gray-700">
-
-              <div className="flex items-start gap-3">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-gray-800 text-center md:text-left">Contact Info</h3>
+            <div className="space-y-4 text-gray-700 w-full">
+              <div className="flex items-start gap-3 justify-center md:justify-start">
                 <Phone className="w-6 h-6 text-purple-600" />
                 <span>(555) 123-4567</span>
               </div>
-
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 justify-center md:justify-start">
                 <Mail className="w-6 h-6 text-purple-600" />
                 <span>info@littlelearnings.com</span>
               </div>
-
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 justify-center md:justify-start">
                 <MapPin className="w-6 h-6 text-purple-600" />
                 <span>
                   123 Learning Lane <br /> Education City, EC 12345
                 </span>
               </div>
             </div>
-
             {/* Social Icons */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 mt-6 justify-center md:justify-start">
               {[Facebook, Instagram].map((Icon, i) => (
                 <div
                   key={i}
@@ -120,7 +119,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Line */}
-        <div className="mt-16 text-center text-gray-700 text-sm">
+        <div className="mt-12 sm:mt-16 text-center text-gray-700 text-xs sm:text-sm">
           © {new Date().getFullYear()} <span className="font-semibold">Little Learnings</span>. All Rights Reserved.
         </div>
       </div>
