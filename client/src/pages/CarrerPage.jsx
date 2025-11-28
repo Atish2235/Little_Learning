@@ -88,7 +88,7 @@ const CareerPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-base md:text-lg">
+    <div className="min-h-screen bg-white text-sm sm:text-base md:text-lg">
       <Navigation />
 
       {/* Hero Section */}
@@ -112,12 +112,12 @@ const CareerPage = () => {
           }}
         />
         {/* Title */}
-        <div className="relative z-20 w-full flex flex-col items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg py-8">
+        <div className="relative z-20 w-full flex flex-col items-center justify-center px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg py-6">
             Careers at Little Learnings
           </h1>
           <nav className="mt-2 flex justify-center" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-lg md:text-xl text-gray-500 font-medium bg-white/60 rounded-full px-4 py-1 shadow-sm backdrop-blur-sm">
+            <ol className="flex items-center space-x-2 text-sm sm:text-lg md:text-xl text-gray-500 font-medium bg-white/60 rounded-full px-3 py-1 shadow-sm backdrop-blur-sm">
               <li>
                 <a
                   href="/"
@@ -136,7 +136,7 @@ const CareerPage = () => {
       </section>
 
       {/* Page Container */}
-      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 md:px-10 pt-14 pb-20">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 md:px-10 pt-12 pb-20">
         {/* Simple Form Title */}
         <div className="text-center mb-6">
           <h2 className="text-2xl md:text-3xl font-semibold">
@@ -148,12 +148,12 @@ const CareerPage = () => {
         </div>
 
         {/* Application Form (kept simple) */}
-        <div className="bg-white/90 backdrop-blur-lg p-6 md:p-10 rounded-3xl shadow-xl">
-          <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+        <div className="bg-white/90 backdrop-blur-lg p-4 sm:p-6 md:p-10 rounded-3xl shadow-xl">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6">
             Apply Now
           </h2>
 
-          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div className="md:col-span-2">
               <h3 className="font-semibold text-lg">Basic Information</h3>
               <p className="text-sm text-gray-500">
@@ -161,11 +161,12 @@ const CareerPage = () => {
               </p>
             </div>
 
+            {/* Inputs: ensure full width on mobile */}
             <input
               name="fullName"
               value={form.fullName}
               onChange={handleInputChange}
-              className="p-3 rounded-xl border border-gray-300"
+              className="w-full p-3 rounded-xl border border-gray-300"
               placeholder="Full Name"
               required
             />
@@ -174,7 +175,7 @@ const CareerPage = () => {
               value={form.email}
               onChange={handleInputChange}
               type="email"
-              className="p-3 rounded-xl border border-gray-300"
+              className="w-full p-3 rounded-xl border border-gray-300"
               placeholder="Email"
               required
             />
@@ -182,47 +183,47 @@ const CareerPage = () => {
               name="phone"
               value={form.phone}
               onChange={handleInputChange}
-              className="p-3 rounded-xl border border-gray-300"
+              className="w-full p-3 rounded-xl border border-gray-300"
               placeholder="Phone Number"
             />
             <input
               name="position"
               value={form.position}
               onChange={handleInputChange}
-              className="p-3 rounded-xl border border-gray-300"
+              className="w-full p-3 rounded-xl border border-gray-300"
               placeholder="Position Applying For"
             />
             <input
               name="location"
               value={form.location}
               onChange={handleInputChange}
-              className="p-3 rounded-xl border border-gray-300"
+              className="w-full p-3 rounded-xl border border-gray-300"
               placeholder="Location (City)"
             />
             <input
               name="education"
               value={form.education}
               onChange={handleInputChange}
-              className="p-3 rounded-xl border border-gray-300"
+              className="w-full p-3 rounded-xl border border-gray-300"
               placeholder="Highest Education"
             />
 
-            {/* Resume Upload */}
+            {/* Resume Upload (stack on mobile) */}
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Upload Resume (PDF / DOC / DOCX, max 5MB)
               </label>
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx,application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                   onChange={handleFileChange}
-                  className="file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-pink-100 file:text-pink-700"
+                  className="w-full sm:w-auto file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-pink-100 file:text-pink-700"
                 />
                 <div className="text-sm text-gray-600">
                   {resumeFile ? (
                     <div>
-                      <div className="font-medium">{resumeFile.name}</div>
+                      <div className="font-medium break-words">{resumeFile.name}</div>
                       <div className="text-xs text-gray-500">
                         {(resumeFile.size / 1024 / 1024).toFixed(2)} MB
                       </div>
@@ -241,7 +242,7 @@ const CareerPage = () => {
               name="cover"
               value={form.cover}
               onChange={handleInputChange}
-              className="p-3 rounded-xl border border-gray-300 md:col-span-2"
+              className="w-full p-3 rounded-xl border border-gray-300 md:col-span-2"
               rows="4"
               placeholder="Tell us about yourself / Cover letter (optional)"
             />
@@ -249,7 +250,7 @@ const CareerPage = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="md:col-span-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-semibold shadow-lg hover:opacity-90 transition disabled:opacity-60"
+              className="md:col-span-2 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl font-semibold shadow-lg hover:opacity-90 transition disabled:opacity-60"
             >
               {submitting ? "Submitting..." : "Submit Application"}
             </button>
