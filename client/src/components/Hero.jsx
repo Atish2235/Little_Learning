@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import FloatingShapes from "./FloatingShapes";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
-import heroImage2 from "../../attached_assets/generated_images/hero_classroom_learning_scene2.png";
 
 export default function Hero() {
-  // Use an array of 4 images. Replace duplicates with other images if/when available.
-  const slides = [heroImage, heroImage2, heroImage, heroImage2];
+  const slides = [
+    "/attached_assets/asset/hero_classroom_learning_scene.png",
+    "/attached_assets/asset/hero_classroom_learning_scene2.png",
+    "/attached_assets/asset/hero_classroom_learning_scene.png",
+    "/attached_assets/asset/hero_classroom_learning_scene2.png",
+  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

@@ -2,7 +2,6 @@ import React from "react";
 import Navigation from "@/components/Navigation";
 import { Baby, BookOpen, School, GraduationCap, Sun, Music } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const ProgramsPage = () => {
   React.useEffect(() => {
@@ -75,7 +74,7 @@ const ProgramsPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${heroImage})`,
+            backgroundImage: `url(/breadcrum.png)`,
             filter: "brightness(1.05) contrast(1.05) saturate(1.05)",
             backgroundPosition: "center top",
             backgroundSize: "cover",

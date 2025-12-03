@@ -36,7 +36,7 @@ export default function Footer() {
             {/* wrapper reserves horizontal space and allows the logo to overlap upwards */}
             <div className="relative w-44 md:w-60 flex-shrink-0 mb-0 sm:mb-0 sm:mr-6 overflow-visible">
               <img
-                src="/attached_assets/generated_images/Little_logo.png"
+                src="/attached_assets/asset/Little_logo.png" /* Make sure Little_logo.png is inside the client/public folder */
                 alt="Little Learnings Logo"
                 className="absolute left-1/2 transform -translate-x-1/2 -top-16 md:top-12 w-40 md:w-full h-auto object-contain z-30 drop-shadow-lg"
               />

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Navigation from "@/components/Navigation";
-import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const FranchisePage = () => {
   const [form, setForm] = useState({
@@ -47,7 +46,7 @@ const FranchisePage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${heroImage})`,
+            backgroundImage: `url(/breadcrum.png)`,
             filter: "brightness(1.05) contrast(1.05) saturate(1.05)",
             backgroundPosition: "center top",
             backgroundSize: "cover",

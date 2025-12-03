@@ -1,5 +1,5 @@
 import React from 'react'
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../../attached_assets/generated_images/hero_classroom_learning_scene.png";
 
 const WhyChooseUsPage = () => {
   React.useEffect(() => {

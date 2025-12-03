@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
 import { Users, Award, Heart } from "lucide-react";
-import aboutImage from "../../attached_assets/generated_images/teacher_reading_with_children.png";
 
 export default function About() {
   return (
@@ -14,7 +13,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div className="relative">
             <img
-              src={aboutImage}
+              src="/attached_assets/asset/teacher_reading_with_children.png"
               alt="Teacher reading with children"
               className="relative rounded-[1.25rem] md:rounded-[2rem] shadow-xl border-4 border-white w-full"
             />

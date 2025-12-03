@@ -1,16 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
-import parent1Image from "../../attached_assets/asset/parent1.png";
-import parent2Image from "../../attached_assets/asset/parent2.png";
-import parent3Image from "../../attached_assets/asset/parent3.png";
 
 export default function Testimonials() {
   const testimonials = [
     {
       name: "Supriya Manwar",
       role: "Parent",
-      image: parent1Image,
+      image: "/attached_assets/asset/parent1.png",
       quote:
         "The teachers at Little Learningss are pure magic! Patient, caring, and so dedicated to making learning fun. Best preschool ever! My little one bloom into a happy learner.",
       rating: 5,
@@ -19,7 +16,7 @@ export default function Testimonials() {
     {
       name: "Vaishali Patil",
       role: "Parent",
-      image: parent2Image,
+      image: "/attached_assets/asset/parent2.png",
       quote:
         "This school has played a major role in my child's development. The staff is professional, caring, and very understanding. The daily activities are well planned and help in language development, creativity and social skills. We have seen noticeable improvement in his confidence and manners. I highly recommend this school for every child. Thank you!",
       rating: 5,
@@ -28,7 +25,7 @@ export default function Testimonials() {
     {
       name: "Dr Suvarna Sharma",
       role: "Parent",
-      image: parent3Image,
+      image: "/attached_assets/asset/parent3.png",
       quote:
         "This school provides a safe, nurturing, and well-managed environment for kids. The staff maintains excellent communication and gives personal attention to every child. We’ve seen wonderful improvement in our child’s confidence and social skills.",
       rating: 5,

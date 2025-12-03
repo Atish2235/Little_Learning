@@ -1,16 +1,11 @@
-import toddlersImage from "../../attached_assets/generated_images/toddlers_playing_with_blocks.png";
-import preKImage from "../../attached_assets/generated_images/pre-k_arts_and_crafts.png";
 import { Plus } from "lucide-react";
-
-// Placeholder image for programs
-import placeholderImage from "../../attached_assets/generated_images/toddlers_playing_with_blocks.png";
 
 export default function Programs() {
   const programs = [
     {
       title: "Playgroup",
       age: "2 years completed",
-      image: placeholderImage,
+      image: "/attached_assets/asset/toddlers_playing_with_blocks.png",
       description: (
         <ul className="text-left list-disc list-inside space-y-1">
           <li>Sensory play & motor skills</li>
@@ -23,7 +18,7 @@ export default function Programs() {
     {
       title: "Nursery",
       age: "3 years completed",
-      image: placeholderImage,
+      image: "/attached_assets/asset/toddlers_playing_with_blocks.png",
       description: (
         <ul className="text-left list-disc list-inside space-y-1">
           <li>Early literacy & numeracy</li>
@@ -36,7 +31,7 @@ export default function Programs() {
     {
       title: "Jr. KG",
       age: "4 years completed",
-      image: placeholderImage,
+      image: "/attached_assets/asset/pre-k_arts_and_crafts.png",
       description: (
         <ul className="text-left list-disc list-inside space-y-1">
           <li>Foundational language & math</li>
@@ -49,7 +44,7 @@ export default function Programs() {
     {
       title: "Sr. KG",
       age: "5 years completed",
-      image: placeholderImage,
+      image: "/attached_assets/asset/pre-k_arts_and_crafts.png",
       description: (
         <ul className="text-left list-disc list-inside space-y-1">
           <li>School readiness with NEP-aligned curriculum</li>
@@ -62,7 +57,7 @@ export default function Programs() {
     {
       title: "Day Care",
       age: "2 Years onwards",
-      image: placeholderImage,
+      image: "/attached_assets/asset/toddlers_playing_with_blocks.png",
       description: (
         <ul className="text-left list-disc list-inside space-y-1">
           <li>Safe, caring, homely environment</li>
@@ -75,7 +70,7 @@ export default function Programs() {
     {
       title: "After-School Activities",
       age: "",
-      image: placeholderImage,
+      image: "/attached_assets/asset/pre-k_arts_and_crafts.png",
       description: (
         <ul className="text-left list-disc list-inside space-y-1">
           <li>Dance & Music – creativity, rhythm & expression</li>

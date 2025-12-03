@@ -1,5 +1,3 @@
-import LogoImg from "../../attached_assets/generated_images/Little_logo.png";
-
 export default function LogoComponent() {
   return (
     <div
@@ -10,7 +8,7 @@ export default function LogoComponent() {
     >
       {/* Logo Only */}
       <img
-        src={LogoImg}
+        src="/attached_assets/asset/Little_logo.png"
         alt="Little Learnings Logo"
         className="w-[100px] h-[100px] sm:w-[130px] sm:h-[130px] md:w-[160px] md:h-[160px] lg:w-[200px] lg:h-[200px] object-contain"
       />
