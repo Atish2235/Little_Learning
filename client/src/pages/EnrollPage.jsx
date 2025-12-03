@@ -17,7 +17,7 @@ const EnrollPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(/breadcrum.png)`,
+            backgroundImage: `url(/attached_assets/asset/breadcrum.png)`,
             filter: "brightness(1.05) contrast(1.05) saturate(1.05)",
             backgroundPosition: "center top",
             backgroundSize: "cover",

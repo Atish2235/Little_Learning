@@ -57,12 +57,9 @@ export default function WelcomePage({ onComplete }) {
 
         {/* Logo - free floating, no frame */}
         <img
-          src={new URL(
-            "/attached_assets/generated_images/Little_logo.png",
-            import.meta.url
-          ).href}
+          src="/attached_assets/asset/Little_logo.png"
           alt="Little Learnings Logo"
-          className="w-64 h-64 md:w-96 md:h-96 object-contain drop-shadow-2xl mx-auto animate-float"
+          className="w-80 h-80 md:w-[30rem] md:h-[30rem] object-contain drop-shadow-2xl mx-auto animate-float"
           loading="eager"
           style={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}
         />
