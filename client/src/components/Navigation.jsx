@@ -131,7 +131,7 @@ export default function Navigation() {
 								onClick={() => setLocation("/enroll")}
 								className="
 				  ml-6
-				  rounded-full px-6 py-3 text-lg font-bold
+				  rounded-full px-4 py-2 text-base font-bold
 				  bg-gradient-to-r from-pink-500 to-purple-600 
 				  text-white shadow-md hover:shadow-xl hover:scale-105
 				  transition-all

@@ -20,7 +20,7 @@ export default function About() {
           </div>
           <div>
             <h2 className="text-5xl font-extrabold text-gray-800 mb-6">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Little Learnings</span>
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Little Learningss</span>
             </h2>
             <p className="text-lg text-gray-700 mb-4 font-serif leading-relaxed">
               Where every child is encouraged to <span className="text-pink-600 font-semibold">wonder, explore and shine</span>.
