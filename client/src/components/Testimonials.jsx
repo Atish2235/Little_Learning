@@ -1,35 +1,36 @@
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
-import parent1Image from "../../attached_assets/generated_images/parent_testimonial_headshot_1.png";
-import parent2Image from "../../attached_assets/generated_images/parent_testimonial_headshot_2.png";
+import parent1Image from "../../attached_assets/asset/parent1.png";
+import parent2Image from "../../attached_assets/asset/parent2.png";
+import parent3Image from "../../attached_assets/asset/parent3.png";
 
 export default function Testimonials() {
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "Parent of Emma, Age 4",
+      name: "Supriya Manwar",
+      role: "Parent",
       image: parent1Image,
       quote:
-        "Little Learnings has been a blessing! Emma wakes up excited for school every day. The teachers truly care and make learning magical.",
+        "The teachers at Little Learningss are pure magic! Patient, caring, and so dedicated to making learning fun. Best preschool ever! My little one bloom into a happy learner.",
       rating: 5,
       color: "from-pink-400 to-red-400",
     },
     {
-      name: "Michael Johnson",
-      role: "Parent of Twins (Age 5)",
+      name: "Vaishali Patil",
+      role: "Parent",
       image: parent2Image,
       quote:
-        "The kindergarten prep program built confidence in our twins. The staff is warm, skilled, and the activities are wonderfully engaging.",
+        "This school has played a major role in my child's development. The staff is professional, caring, and very understanding. The daily activities are well planned and help in language development, creativity and social skills. We have seen noticeable improvement in his confidence and manners. I highly recommend this school for every child. Thank you!",
       rating: 5,
       color: "from-purple-400 to-blue-400",
     },
     {
-      name: "Lisa Martinez",
-      role: "Parent of Noah, Age 3",
-      image: parent1Image,
+      name: "Dr Suvarna Sharma",
+      role: "Parent",
+      image: parent3Image,
       quote:
-        "As a first-time parent, I was nervous. But the team made everything smooth. Noah has blossomed, socially and emotionally!",
+        "This school provides a safe, nurturing, and well-managed environment for kids. The staff maintains excellent communication and gives personal attention to every child. We’ve seen wonderful improvement in our child’s confidence and social skills.",
       rating: 5,
       color: "from-yellow-400 to-orange-400",
     },

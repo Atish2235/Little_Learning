@@ -36,7 +36,7 @@ export default function FAQ() {
         </h2>
 
         <p className="text-gray-700 text-xl font-serif mb-14">
-          Answers to help you understand how Little Learnings helps your child grow 🌈
+          Answers to help you understand how Little Learningss helps your child grow 🌈
         </p>
 
         {/* Accordion */}
@@ -46,14 +46,14 @@ export default function FAQ() {
             {/* Q1 */}
             <AccordionItem
               value="q1"
-              className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
+              className="bg-white shadow rounded-2xl p-3 border border-purple-100"
             >
-              <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <School className="w-6 h-6 text-pink-500" />
+              <AccordionTrigger className="text-lg flex items-center gap-2 font-medium text-purple-700">
+                <School className="w-5 h-5 text-pink-500" />
                 What curriculum does Little Learningss follow?
               </AccordionTrigger>
 
-              <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
+              <AccordionContent className="text-gray-600 text-left font-serif pl-8 pr-3 pt-1 text-sm">
                 We follow an international early-years curriculum blended with
                 Indian culture, heritage and values, fully aligned with the NEP.
                 Our approach focuses on holistic development, creativity,
@@ -64,14 +64,14 @@ export default function FAQ() {
             {/* Q2 */}
             <AccordionItem
               value="q2"
-              className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
+              className="bg-white shadow rounded-2xl p-3 border border-purple-100"
             >
-              <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <Baby className="w-6 h-6 text-blue-500" />
+              <AccordionTrigger className="text-lg flex items-center gap-2 font-medium text-purple-700">
+                <Baby className="w-5 h-5 text-blue-500" />
                 What age groups do you admit?
               </AccordionTrigger>
 
-              <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
+              <AccordionContent className="text-gray-600 text-left font-serif pl-8 pr-3 pt-1 text-sm">
                 We offer programs for children <strong>2 to 5 years</strong> (Playgroup to Sr. KG)
                 along with <strong>Day Care for ages 2 to 10 years</strong>.
                 Admission is open throughout the year based on seat availability.
@@ -81,14 +81,14 @@ export default function FAQ() {
             {/* Q3 */}
             <AccordionItem
               value="q3"
-              className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
+              className="bg-white shadow rounded-2xl p-3 border border-purple-100"
             >
-              <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <ShieldCheck className="w-6 h-6 text-yellow-500" />
+              <AccordionTrigger className="text-lg flex items-center gap-2 font-medium text-purple-700">
+                <ShieldCheck className="w-5 h-5 text-yellow-500" />
                 Is the school environment safe for children?
               </AccordionTrigger>
 
-              <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
+              <AccordionContent className="text-gray-600 text-left font-serif pl-8 pr-3 pt-1 text-sm">
                 Yes. Our campus is <strong>CCTV-monitored</strong>, child-safe, hygienic, and
                 managed by trained staff. We maintain a
                 <strong> low student–teacher ratio</strong> to ensure personal care,
@@ -99,14 +99,14 @@ export default function FAQ() {
             {/* Q4 */}
             <AccordionItem
               value="q4"
-              className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
+              className="bg-white shadow rounded-2xl p-3 border border-purple-100"
             >
-              <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <School className="w-6 h-6 text-green-500" />
+              <AccordionTrigger className="text-lg flex items-center gap-2 font-medium text-purple-700">
+                <School className="w-5 h-5 text-green-500" />
                 Do you help children transition to primary school?
               </AccordionTrigger>
 
-              <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
+              <AccordionContent className="text-gray-600 text-left font-serif pl-8 pr-3 pt-1 text-sm">
                 Yes. We have tie-ups with reputed primary schools to ensure a
                 smooth and comfortable transition.
                 Our <strong>UKG program</strong> includes school-readiness training,
@@ -117,14 +117,14 @@ export default function FAQ() {
             {/* Q5 */}
             <AccordionItem
               value="q5"
-              className="bg-white shadow-xl rounded-3xl p-5 border border-purple-100"
+              className="bg-white shadow rounded-2xl p-3 border border-purple-100"
             >
-              <AccordionTrigger className="text-xl flex items-center gap-3 font-semibold text-purple-700">
-                <MessageSquare className="w-6 h-6 text-purple-500" />
+              <AccordionTrigger className="text-lg flex items-center gap-2 font-medium text-purple-700">
+                <MessageSquare className="w-5 h-5 text-purple-500" />
                 How do parents stay updated about their child’s progress?
               </AccordionTrigger>
 
-              <AccordionContent className="text-gray-600 text-left font-serif pl-10 pr-4 pt-2">
+              <AccordionContent className="text-gray-600 text-left font-serif pl-8 pr-3 pt-1 text-sm">
                 We provide a <strong>Parent Communication App</strong> that allows parents
                 to receive daily updates, photos, activity reports, attendance, and
                 important announcements—keeping you connected with your child’s

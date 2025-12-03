@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "@/components/Navigation";
 import { Link } from "react-router-dom";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const BranchesPage = () => {
   React.useEffect(() => {
@@ -10,25 +10,20 @@ const BranchesPage = () => {
 
   const branches = [
     {
-      name: "Little Learnings – Pune",
-      address: "Sunrise Apartments, Baner, Pune – 411045",
-      phone: "+91 98765 43210",
-      timing: "Mon–Sat • 9:00 AM – 6:00 PM",
-      map: "https://maps.google.com",
+      name: "Warje",
+      address: 'Sr. No. 138/2A/2/3 "Kalpataru" Near Awale Petrol Pump, NDA Road, Warje, Pune - 411058',
+      phone: "+91 84463 90854",
+      email: "warje@Littlelearningss.com",
+      timing: "8.30AM to 7.30PM",
+      map: "https://maps.google.com/?q=Sr.+No.+138/2A/2/3+Kalpataru+Near+Awale+Petrol+Pump,+NDA+Road,+Warje,+Pune+-+411058",
     },
     {
-      name: "Little Learnings – Mumbai",
-      address: "Harmony Towers, Andheri West, Mumbai – 400053",
-      phone: "+91 91234 56789",
-      timing: "Mon–Sat • 9:00 AM – 6:00 PM",
-      map: "https://maps.google.com",
-    },
-    {
-      name: "Little Learnings – Nashik",
-      address: "Green Park, Gangapur Road, Nashik – 422013",
-      phone: "+91 99887 76655",
-      timing: "Mon–Sat • 9:00 AM – 6:00 PM",
-      map: "https://maps.google.com",
+      name: "Kothrud",
+      address: "Aviraj Hostel, Near, No. 133/26,27, Ishan Building Prabha CHS, DP Rd, Mayur Colony, Kothrud, Pune, Maharashtra 411038",
+      phone: "+91 99755 18504",
+      email: "kothrud@Littlelearningss.com",
+      timing: "8.30AM to 7.30PM",
+      map: "https://maps.google.com/?q=Aviraj+Hostel,+No.+133/26,27,+Ishan+Building+Prabha+CHS,+DP+Rd,+Mayur+Colony,+Kothrud,+Pune,+Maharashtra+411038",
     },
   ];
 
@@ -85,12 +80,12 @@ const BranchesPage = () => {
 
       {/* Page Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-8 md:pt-12 pb-20">
-        {/* Branch Cards */}
-        <div className="mt-8 md:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Branch Cards  */}
+        <div className="mt-0 flex flex-wrap justify-center gap-6 md:gap-8">
           {branches.map((branch, index) => (
             <div
               key={index}
-              className="bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl md:rounded-3xl border-2 border-gray-100 p-4 md:p-6 hover:scale-105 transition-transform
+              className="w-full max-w-md bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl md:rounded-3xl border-2 border-gray-100 p-4 md:p-6 hover:scale-105 transition-transform
                 hover:bg-gradient-to-br hover:from-pink-50 hover:to-purple-50
                 relative
                 before:content-[''] before:absolute before:inset-0 before:rounded-2xl md:before:rounded-3xl
@@ -109,7 +104,11 @@ const BranchesPage = () => {
               </p>
 
               <p className="text-gray-700 mb-2">
-                <strong>📞 Phone:</strong> {branch.phone}
+                <strong>📞 Call:</strong> <a href={`tel:${branch.phone.replace(/\s+/g, '')}`} className="text-pink-600 hover:underline">{branch.phone}</a>
+              </p>
+
+              <p className="text-gray-700 mb-2">
+                <strong>✉ Email:</strong> <a href={`mailto:${branch.email}`} className="text-pink-600 hover:underline">{branch.email}</a>
               </p>
 
               <p className="text-gray-700 mb-4">

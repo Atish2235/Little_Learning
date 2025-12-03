@@ -18,10 +18,13 @@ import Navigation from "./components/Navigation";
 import BranchesPage from "./pages/BranchesPage";
 import FranchisePage from "./pages/FranchisePage";
 import CarrerPage from "./pages/CarrerPage";
-import EnrollPage from "@/pages/EnrollPage"; // <-- added import
-
-// ⭐ NEW IMPORT — Floating Buttons
+import EnrollPage from "@/pages/EnrollPage";
 import FloatingContactButtons from "./components/FloatingContactButtons";
+
+// ⭐ NEW ADMIN PAGE
+import AdminGalleryUpload from "@/pages/Admin/AdminGalleryUpload";
+import AdminLogin from "@/pages/Admin/AdminLogin";
+import AdminGalleryManagement from "@/pages/Admin/AdminGalleryManagement";
 
 function Router() {
   return (
@@ -35,7 +38,14 @@ function Router() {
       <Route path="/branches" component={BranchesPage} />
       <Route path="/franchise" component={FranchisePage} />
       <Route path="/career" component={CarrerPage} />
-      <Route path="/enroll" component={EnrollPage} /> {/* <-- new enroll route */}
+      <Route path="/enroll" component={EnrollPage} />
+      
+
+      {/* ⭐ NEW ROUTE */}
+      <Route path="/admin/gallery-upload" component={AdminGalleryUpload} />
+      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin/gallery-management" component={AdminGalleryManagement} />
+
       <Route component={NotFound} />
     </Switch>
   );
@@ -53,18 +63,11 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <BrowserRouter>
-
-          {/* NAVIGATION */}
           <Navigation />
-
-          {/* ⭐ FLOATING WHATSAPP + CALL BUTTONS */}
           <FloatingContactButtons />
-
-          {/* MAIN CONTENT */}
           <Layout>
             <Router />
           </Layout>
-
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

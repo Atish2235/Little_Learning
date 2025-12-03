@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "@/components/Navigation";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const EnrollPage = () => {
   React.useEffect(() => {
@@ -143,7 +143,7 @@ const EnrollPage = () => {
                 <option>Nursery (3+ Years)</option>
                 <option>Jr. KG (4+ Years)</option>
                 <option>Sr. KG (5+ Years)</option>
-                <option>Day Care (2+ Years)</option>
+                <option>Day Care (1+ Years)</option>
                 <option>After-School Activities</option>
               </select>
             </div>

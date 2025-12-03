@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navigation from "@/components/Navigation";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const ContactPage = () => {
   const [form, setForm] = useState({
@@ -8,6 +8,7 @@ const ContactPage = () => {
     email: "",
     phone: "",
     message: "",
+    program: "", // add program to form state
   });
 
   const [loading, setLoading] = useState(false);
@@ -24,7 +25,8 @@ const ContactPage = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/send-email", {
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const res = await fetch(`${apiUrl}/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,10 +114,10 @@ const ContactPage = () => {
       </section>
 
       {/* Page Container */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-8 md:pt-12 pb-16">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-2 md:pt-4 pb-16">
         
         {/* Grid Layout */}
-        <div className="mt-10 md:mt-14 grid md:grid-cols-2 gap-8">
+        <div className="mt-4 md:mt-6 grid md:grid-cols-2 gap-8">
 
           {/* Contact Form */}
           <div className="bg-white/90 backdrop-blur-lg p-4 md:p-8 rounded-2xl md:rounded-3xl shadow-xl border border-transparent
@@ -168,6 +170,25 @@ const ContactPage = () => {
                 />
               </div>
 
+              {/* Program Dropdown */}
+              <div>
+                <label className="text-gray-700 font-medium">Select Program</label>
+                <select
+                  required
+                  value={form.program}
+                  onChange={e => setForm({ ...form, program: e.target.value })}
+                  className="w-full mt-2 px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
+                >
+                  <option value="">Choose a program</option>
+                  <option>Playgroup (2+ Years)</option>
+                  <option>Nursery (3+ Years)</option>
+                  <option>Jr. KG (4+ Years)</option>
+                  <option>Sr. KG (5+ Years)</option>
+                  <option>Day Care (1+ Years)</option>
+                  <option>After-School Activities</option>
+                </select>
+              </div>
+
               <div>
                 <label className="text-gray-700 font-medium">Message</label>
                 <textarea
@@ -203,30 +224,33 @@ const ContactPage = () => {
               Get in Touch
             </h2>
 
-            <p className="text-gray-700 mb-4">
-              <strong>📍 Address:</strong> Little Learnings Preschool, Baner, Pune – 411045
-            </p>
+            {/* Warje Branch */}
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-purple-700 mb-2">Warje</h3>
+              <p className="text-gray-700 mb-2">
+                <strong>📍 Address:</strong> Sr. No. 138/2A/2/3 "Kalpataru" Near Awale Petrol Pump, NDA Road, Warje, Pune - 411058
+              </p>
+              <p className="text-gray-700 mb-2">
+                <strong>📞 Call:</strong> <a href="tel:+918446390854" className="text-pink-600 hover:underline">+91 84463 90854</a>
+              </p>
+              <p className="text-gray-700 mb-2">
+                <strong>✉ Email:</strong> <a href="mailto:warje@Littlelearningss.com" className="text-pink-600 hover:underline">warje@Littlelearningss.com</a>
+              </p>
+            </div>
 
-            <p className="text-gray-700 mb-4">
-              <strong>📞 Phone:</strong> +91 98765 43210
-            </p>
-
-            <p className="text-gray-700 mb-4">
-              <strong>✉ Email:</strong> hello@littlelearnings.in
-            </p>
-
-            <p className="text-gray-700 mb-6">
-              <strong>⏰ Timings:</strong> Mon–Sat • 9:00 AM – 6:00 PM
-            </p>
-
-            <a
-              href="https://maps.google.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block w-full text-center bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 px-4 rounded-xl shadow-md hover:opacity-90 transition"
-            >
-              View on Google Maps
-            </a>
+            {/* Kothrud Branch */}
+            <div>
+              <h3 className="text-lg font-semibold text-purple-700 mb-2">Kothrud</h3>
+              <p className="text-gray-700 mb-2">
+                <strong>📍 Address:</strong> Aviraj Hostel, Near, No. 133/26,27, Ishan Building Prabha CHS, DP Rd, Mayur Colony, Kothrud, Pune, Maharashtra 411038
+              </p>
+              <p className="text-gray-700 mb-2">
+                <strong>📞 Call:</strong> <a href="tel:+919975518504" className="text-pink-600 hover:underline">+91 99755 18504</a>
+              </p>
+              <p className="text-gray-700 mb-2">
+                <strong>✉ Email:</strong> <a href="mailto:kothrud@Littlelearningss.com" className="text-pink-600 hover:underline">kothrud@Littlelearningss.com</a>
+              </p>
+            </div>
           </div>
 
         </div>

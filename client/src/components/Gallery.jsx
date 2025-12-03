@@ -1,20 +1,49 @@
 import { Card } from "@/components/ui/card";
-import gallery1 from "../../attached_assets/generated_images/reading_corner_moment.png";
-import gallery2 from "../../attached_assets/generated_images/outdoor_playground_fun.png";
-import gallery3 from "../../attached_assets/generated_images/music_class_activity.png";
-import gallery4 from "../../attached_assets/generated_images/teacher_reading_with_children.png";
-import gallery5 from "../../attached_assets/generated_images/toddlers_playing_with_blocks.png";
-import gallery6 from "../../attached_assets/generated_images/pre-k_arts_and_crafts.png";
+import { useState, useEffect } from "react";
 
 export default function Gallery() {
-  const photos = [
-    { src: gallery1, rotation: "-rotate-2" },
-    { src: gallery2, rotation: "rotate-2" },
-    { src: gallery3, rotation: "-rotate-1" },
-    { src: gallery4, rotation: "rotate-1" },
-    { src: gallery5, rotation: "-rotate-3" },
-    { src: gallery6, rotation: "rotate-3" },
-  ];
+  const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+  // Fetch gallery images from database
+  useEffect(() => {
+    const fetchGalleryImages = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/gallery`);
+        const data = await response.json();
+
+        // Map the data to include rotation classes and limit to 6 images
+        const rotations = [
+          "-rotate-2",
+          "rotate-2",
+          "-rotate-1",
+          "rotate-1",
+          "-rotate-3",
+          "rotate-3",
+        ];
+
+        // limit results to first 6 images
+        const limitedData = (Array.isArray(data) ? data : []).slice(0, 6);
+
+        const mappedPhotos = limitedData.map((img, index) => ({
+          id: img.id,
+          src: `${apiUrl}${img.image_url}`,
+          title: img.title,
+          rotation: rotations[index % rotations.length],
+        }));
+
+        setPhotos(mappedPhotos);
+      } catch (err) {
+        console.error("Error fetching gallery:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGalleryImages();
+  }, []);
 
   return (
     <section
@@ -39,33 +68,41 @@ export default function Gallery() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-          {photos.map((photo, index) => (
-            <Card
-              key={index}
-              className={`
-                p-4 bg-white shadow-lg rounded-3xl 
-                hover:shadow-2xl hover:scale-[1.05] transition-all duration-300 cursor-pointer
-                relative ${photo.rotation}
-              `}
-            >
-              {/* Cute Sticker Pin */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-yellow-300 rounded-full shadow-md border-2 border-white z-10"></div>
+        {loading ? (
+          <div className="text-center text-gray-600">Loading gallery...</div>
+        ) : photos.length === 0 ? (
+          <div className="text-center text-gray-600">
+            No images yet. Upload some photos!
+          </div>
+        ) : (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+            {photos.map((photo) => (
+              <Card
+                key={photo.id}
+                className={`
+                  p-4 bg-white shadow-lg rounded-3xl 
+                  hover:shadow-2xl hover:scale-[1.05] transition-all duration-300 cursor-pointer
+                  relative ${photo.rotation}
+                `}
+              >
+                {/* Cute Sticker Pin */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-yellow-300 rounded-full shadow-md border-2 border-white z-10"></div>
 
-              <div className="rounded-2xl overflow-hidden">
-                <img
-                  src={photo.src}
-                  alt="gallery photo"
-                  className="w-full h-64 object-cover rounded-2xl"
-                />
-              </div>
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src={photo.src}
+                    alt={photo.title}
+                    className="w-full h-64 object-cover rounded-2xl"
+                  />
+                </div>
 
-              {/* Decorative tape */}
-              <div className="absolute bottom-2 right-4 w-16 h-4 bg-blue-300/70 rotate-6 rounded-sm"></div>
-              <div className="absolute top-4 left-2 w-14 h-4 bg-pink-300/70 -rotate-6 rounded-sm"></div>
-            </Card>
-          ))}
-        </div>
+                {/* Decorative tape */}
+                <div className="absolute bottom-2 right-4 w-16 h-4 bg-blue-300/70 rotate-6 rounded-sm"></div>
+                <div className="absolute top-4 left-2 w-14 h-4 bg-pink-300/70 -rotate-6 rounded-sm"></div>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const CareerPage = () => {
   useEffect(() => {
@@ -20,6 +20,7 @@ const CareerPage = () => {
   const [resumeFile, setResumeFile] = useState(null);
   const [resumeError, setResumeError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [localToast, setLocalToast] = useState({ visible: false, message: "", type: "info" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,22 +53,34 @@ const CareerPage = () => {
     setResumeFile(file);
   };
 
+  const showToast = (type, message) => {
+    setLocalToast({ visible: true, message, type });
+    setTimeout(() => setLocalToast((t) => ({ ...t, visible: false })), 3000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+    
     try {
       const fd = new FormData();
       Object.entries(form).forEach(([k, v]) => fd.append(k, v));
       if (resumeFile) fd.append("resume", resumeFile);
 
-      // Demo: send to /api/apply (replace with actual endpoint)
-      const res = await fetch("/api/apply", { method: "POST", body: fd });
+      // Change this for production
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const res = await fetch(`${apiUrl}/send-career-application`, {
+        method: "POST",
+        body: fd
+      });
+
       if (!res.ok) {
-        // fallback / demo behaviour if endpoint not present
-        console.warn("Server returned", res.status);
+        throw new Error(`Request failed with status ${res.status}`);
       }
 
-      // Reset on success (or for demo)
+      showToast("success", "Your application has been submitted successfully!");
+      
+      // Reset form
       setForm({
         fullName: "",
         email: "",
@@ -78,10 +91,12 @@ const CareerPage = () => {
         cover: "",
       });
       setResumeFile(null);
-      alert("Application submitted (demo).");
+      // Reset file input
+      const fileInput = document.getElementById('resumeInput');
+      if (fileInput) fileInput.value = '';
     } catch (err) {
+      showToast("error", "Submission failed. Please try again!");
       console.error(err);
-      alert("Submission failed. See console for details.");
     } finally {
       setSubmitting(false);
     }
@@ -90,6 +105,22 @@ const CareerPage = () => {
   return (
     <div className="min-h-screen bg-white text-sm sm:text-base md:text-lg">
       <Navigation />
+
+      {/* Simple fallback toast */}
+      {localToast.visible && (
+        <div
+          aria-live="polite"
+          className="fixed top-6 right-6 z-50"
+        >
+          <div
+            className={`px-4 py-2 rounded shadow-lg text-white ${
+              localToast.type === "success" ? "bg-green-600" : "bg-red-600"
+            }`}
+          >
+            {localToast.message}
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative min-h-[18vh] sm:min-h-[22vh] md:min-h-[28vh] flex flex-col items-center justify-center overflow-hidden">
@@ -215,6 +246,7 @@ const CareerPage = () => {
               </label>
               <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                 <input
+                  id="resumeInput"
                   type="file"
                   accept=".pdf,.doc,.docx,application/msword,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                   onChange={handleFileChange}

@@ -1,9 +1,9 @@
 import React from "react";
 import Navigation from "@/components/Navigation";
 import { Card } from "@/components/ui/card";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../attached_assets/asset/breadcrum.png";
 
-// --- SectionHeader, Philosophy, Curriculum, VisionMission (copied and slightly adapted from About.jsx) ---
+
 
 function SectionHeader({ title, subtitle }) {
   return (
@@ -16,6 +16,7 @@ function SectionHeader({ title, subtitle }) {
 
 function Philosophy() {
   return (
+    <div className="mt-0 flex flex-wrap justify-center gap-6 md:gap-8">
     <Card className="p-6 md:p-8 bg-gradient-to-br from-yellow-50 to-pink-50 mb-8 shadow-lg">
       <h3 className="text-2xl font-bold text-pink-700 mb-2 font-serif">
         Our Philosophy
@@ -45,6 +46,7 @@ function Philosophy() {
         <span className="text-xl">We prepare them for life.</span>
       </p>
     </Card>
+    </div>
   );
 }
 
@@ -145,7 +147,7 @@ const AboutPage = () => {
         {/* Title and Breadcrumb */}
         <div className="relative z-20 w-full flex flex-col items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg py-8">
-            About Little Learnings
+            About Little Learningss
           </h1>
           <nav className="mt-2 flex justify-center" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-lg md:text-xl text-gray-500 font-medium bg-white/60 rounded-full px-4 py-1 shadow-sm backdrop-blur-sm">
@@ -172,10 +174,8 @@ const AboutPage = () => {
         <div className="absolute top-20 -right-10 w-52 h-52 bg-purple-300/30 rounded-full blur-2xl"></div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl"></div>
 
-        {/* Philosophy Section */}
-        <div className="mt-10">
-          <Philosophy />
-        </div>
+        {/* Philosophy Section - moved up */}
+        <Philosophy />
 
         {/* Curriculum & Indian Values Section */}
         <Curriculum />

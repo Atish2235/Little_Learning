@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "@/components/Navigation";
 import { Baby, BookOpen, School, GraduationCap, Sun, Music } from "lucide-react";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const ProgramsPage = () => {
   React.useEffect(() => {
@@ -46,7 +46,7 @@ const ProgramsPage = () => {
       ],
     },
     {
-      title: "Day Care (2+ Years)",
+      title: "Day Care (1+ Years)",
       icon: <Sun size={40} className="text-yellow-500" />,
       points: [
         "Safe, caring & homely environment",
@@ -111,7 +111,7 @@ const ProgramsPage = () => {
       </section>
 
       {/* Page Container */}
-      <div className="relative max-w-6xl mx-auto px-6 md:px-10 pt-8 md:pt-12 pb-20">
+      <div className="relative max-w-6xl mx-auto px-6 md:px-10 pt-8 md:pt-2 pb-20">
         {/* Program Cards */}
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {programs.map((program, index) => (
@@ -149,7 +149,7 @@ const ProgramsPage = () => {
             Not Sure Which Program is Right for Your Child?
           </h2>
           <p className="text-gray-700 mt-2">
-            Talk to our counselors and find the perfect learning path.
+            Talk to our educators and find the perfect learning path.
           </p>
 
           <a

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navigation from "@/components/Navigation";
-import heroImage from "../../attached_assets/generated_images/hero_classroom_learning_scene.png";
+import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const FranchisePage = () => {
   const [form, setForm] = useState({
@@ -84,24 +84,21 @@ const FranchisePage = () => {
 
       {/* Page Container */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-8 md:pt-12 pb-12">
-        {/* Hero Section Content */}
-        <div className="text-center">
-          <p className="text-base md:text-xl text-gray-700 mt-4 md:mt-5 max-w-3xl mx-auto">
-            Join Little Learnings and become part of a rapidly growing early-education
-            brand dedicated to nurturing young minds through international learning
-            blended with Indian culture and values.
-          </p>
-        </div>
-      </div>
-
-      {/* Why Partner Section */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pb-12">
         <h2 className="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text mb-8 md:mb-10">
           Why Partner With Us?
         </h2>
 
+          <p className="text-gray-700 mb-6 text-center max-w-3xl mx-auto">
+            A franchise model designed for your success — we go beyond curriculum to build sustainable,
+            profitable preschools with hands-on support and a partnership approach.
+          </p>
+      </div>
+
+      {/* Why Partner Section - cards now follow the SEO block */}
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pb-12">
+
+
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {/* Card 1 */}
           <div className="p-4 md:p-6 bg-white/90 backdrop-blur-lg rounded-2xl md:rounded-3xl shadow-xl border-4 border-white hover:scale-105 transition
             hover:bg-gradient-to-br hover:from-pink-100 hover:to-purple-100
             relative
@@ -111,13 +108,13 @@ const FranchisePage = () => {
             "
             style={{ zIndex: 1, overflow: "hidden" }}
           >
-            <h3 className="text-lg md:text-xl font-bold mb-2 text-purple-600">📘 Proven Curriculum</h3>
+            <h3 className="text-lg md:text-xl font-bold mb-2 text-emerald-600">End-to-End Operational Support</h3>
             <p className="text-gray-700 text-sm md:text-base">
-              NEP-aligned international curriculum with a strong Indian cultural foundation.
+              Little Learningss provides comprehensive assistance in daily operations, ensuring your preschool runs smoothly with high-quality standards and efficient processes. You’ll never feel alone—we stand by you at every step.
             </p>
           </div>
 
-          {/* Card 2 */}
+          {/* Card: Recruitment & Staff Training Assistance */}
           <div className="p-4 md:p-6 bg-white/90 backdrop-blur-lg rounded-2xl md:rounded-3xl shadow-xl border-4 border-white hover:scale-105 transition
             hover:bg-gradient-to-br hover:from-pink-100 hover:to-purple-100
             relative
@@ -127,13 +124,13 @@ const FranchisePage = () => {
             "
             style={{ zIndex: 1, overflow: "hidden" }}
           >
-            <h3 className="text-lg md:text-xl font-bold mb-2 text-pink-600">👩‍🏫 Training & Support</h3>
+            <h3 className="text-lg md:text-xl font-bold mb-2 text-pink-600">👩‍🏫 Recruitment & Staff Training Assistance</h3>
             <p className="text-gray-700 text-sm md:text-base">
-              Complete teacher training, onboarding, marketing, and operational support.
+              Great preschools are built by great teams. We help you find the right teachers and staff, followed by continuous training and upskilling sessions to maintain excellence in teaching and care.
             </p>
           </div>
 
-          {/* Card 3 */}
+          {/* Card: Admissions Guidance & Target Achievement */}
           <div className="p-4 md:p-6 bg-white/90 backdrop-blur-lg rounded-2xl md:rounded-3xl shadow-xl border-4 border-white hover:scale-105 transition
             hover:bg-gradient-to-br hover:from-pink-100 hover:to-purple-100
             relative
@@ -143,9 +140,71 @@ const FranchisePage = () => {
             "
             style={{ zIndex: 1, overflow: "hidden" }}
           >
-            <h3 className="text-lg md:text-xl font-bold mb-2 text-blue-600">🏫 Low Investment Model</h3>
+            <h3 className="text-lg md:text-xl font-bold mb-2 text-blue-600">🎯 Admissions Guidance & Target Achievement</h3>
             <p className="text-gray-700 text-sm md:text-base">
-              Start a preschool with minimal investment and high growth potential.
+              Your growth is our priority. Little Learningss supports you with proven strategies, tools, and local-level guidance to help you achieve and consistently grow your admissions numbers.
+            </p>
+          </div>
+
+          {/* Card: Continuous Upskilling & Learning Support */}
+          <div className="p-4 md:p-6 bg-white/90 backdrop-blur-lg rounded-2xl md:rounded-3xl shadow-xl border-4 border-white hover:scale-105 transition
+            hover:bg-gradient-to-br hover:from-pink-100 hover:to-purple-100
+            relative
+            before:content-[''] before:absolute before:inset-0 before:rounded-2xl md:before:rounded-3xl
+            before:bg-gradient-to-r before:from-pink-400 before:via-purple-400 before:to-blue-400
+            before:opacity-20 before:-z-10
+            "
+            style={{ zIndex: 1, overflow: "hidden" }}
+          >
+            <h3 className="text-lg md:text-xl font-bold mb-2 text-indigo-600">📚 Continuous Upskilling & Learning Support</h3>
+            <p className="text-gray-700 text-sm md:text-base">
+              We ensure that your team stays updated with the latest trends in early education. Our ongoing workshops, training modules, and resource updates keep your preschool innovative and competitive.
+            </p>
+          </div>
+
+          {/* Card: After-School Programs for Higher Profitability */}
+          <div className="p-4 md:p-6 bg-white/90 backdrop-blur-lg rounded-2xl md:rounded-3xl shadow-xl border-4 border-white hover:scale-105 transition
+            hover:bg-gradient-to-br hover:from-pink-100 hover:to-purple-100
+            relative
+            before:content-[''] before:absolute before:inset-0 before:rounded-2xl md:before:rounded-3xl
+            before:bg-gradient-to-r before:from-pink-400 before:via-purple-400 before:to-blue-400
+            before:opacity-20 before:-z-10
+            "
+            style={{ zIndex: 1, overflow: "hidden" }}
+          >
+            <h3 className="text-lg md:text-xl font-bold mb-2 text-rose-600">🎨 After-School Programs for Higher Profitability</h3>
+            <p className="text-gray-700 text-sm md:text-base">
+              To help franchise partners increase revenue, Little Learningss offers structured, in-demand after-school activities. These programs attract more enrollments and add a profitable extension to your preschool operations.
+            </p>
+          </div>
+
+          {/* Card: No Premium Royalty — Fast ROI */}
+          <div className="p-4 md:p-6 bg-white/90 backdrop-blur-lg rounded-2xl md:rounded-3xl shadow-xl border-4 border-white hover:scale-105 transition
+            hover:bg-gradient-to-br hover:from-pink-100 hover:to-purple-100
+            relative
+            before:content-[''] before:absolute before:inset-0 before:rounded-2xl md:before:rounded-3xl
+            before:bg-gradient-to-r before:from-pink-400 before:via-purple-400 before:to-blue-400
+            before:opacity-20 before:-z-10
+            "
+            style={{ zIndex: 1, overflow: "hidden" }}
+          >
+            <h3 className="text-lg md:text-xl font-bold mb-2 text-emerald-600">💸 No Premium Royalty—Fast ROI for Franchisees</h3>
+            <p className="text-gray-700 text-sm md:text-base">
+              At Little Learningss, we believe in fair and transparent royalty structures. We do not charge premium royalty fees, enabling you to achieve ROI faster and enjoy long-term profitability without unnecessary financial pressure.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      {/* SEO Content Section - stylized & integrated (replaces the previous pre block) */}
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pb-12">
+        <div className="bg-white/95 p-6 md:p-10 rounded-2xl shadow-lg border border-gray-100">
+          <div className="text-center">
+            <p className="text-gray-800 font-semibold">Little Learningss — A Partnership That Truly Supports You</p>
+            <p className="text-gray-700 mt-3 max-w-2xl mx-auto">
+              When you join the Little Learningss franchise family, you’re not just opening a preschool — you’re becoming part of a supportive,
+              growth-focused community. Together, we nurture children, empower families, and build preschools that stand out for quality, trust, and care.
             </p>
           </div>
         </div>

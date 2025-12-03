@@ -142,41 +142,52 @@ export default function Contact() {
 
           {/* Contact Info */}
           <div className="space-y-4 w-full">
+            {/* Warje Branch */}
             <Card className="rounded-2xl md:rounded-3xl shadow-lg bg-white hover:scale-[1.02] transition p-4 md:p-5">
-              <div className="flex items-center gap-4">
-                <div className="p-3 md:p-4 rounded-full bg-white">
-                  <Phone className="h-5 w-5 md:h-6 md:w-6 text-purple-700" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Phone</h3>
-                  <p className="text-gray-600 text-sm md:text-base">(555) 123-4567</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="rounded-2xl md:rounded-3xl shadow-lg bg-white hover:scale-[1.02] transition p-4 md:p-5">
-              <div className="flex items-center gap-4">
-                <div className="p-3 md:p-4 rounded-full bg-white">
-                  <Mail className="h-5 w-5 md:h-6 md:w-6 text-blue-700" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Email</h3>
-                  <p className="text-gray-600 text-sm md:text-base">info@littlelearnings.com</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="rounded-2xl md:rounded-3xl shadow-lg bg-white hover:scale-[1.02] transition p-4 md:p-5">
-              <div className="flex items-center gap-4">
+              <div className="flex items-start gap-4">
                 <div className="p-3 md:p-4 rounded-full bg-white">
                   <MapPin className="h-5 w-5 md:h-6 md:w-6 text-green-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Address</h3>
+                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Warje</h3>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    123 Learning Lane <br />
-                    Education City, EC 12345
+                    Sr. No. 138/2A/2/3 "Kalpataru"<br />
+                    Near Awale Petrol Pump, NDA Road,<br />
+                    Warje, Pune - 411058
                   </p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <Phone className="h-4 w-4 text-purple-700" />
+                    <span className="text-gray-600 text-sm">+91 84463 90854</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-1">
+                    <Mail className="h-4 w-4 text-blue-700" />
+                    <span className="text-gray-600 text-sm">warje@Littlelearningss.com</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Kothrud Branch */}
+            <Card className="rounded-2xl md:rounded-3xl shadow-lg bg-white hover:scale-[1.02] transition p-4 md:p-5">
+              <div className="flex items-start gap-4">
+                <div className="p-3 md:p-4 rounded-full bg-white">
+                  <MapPin className="h-5 w-5 md:h-6 md:w-6 text-green-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-base md:text-lg text-gray-800">Kothrud</h3>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    Aviraj Hostel, Near, No. 133/26,27,<br />
+                    Ishan Building Prabha CHS, DP Rd,<br />
+                    Mayur Colony, Kothrud, Pune, Maharashtra 411038
+                  </p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <Phone className="h-4 w-4 text-purple-700" />
+                    <span className="text-gray-600 text-sm">+91 99755 18504</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-1">
+                    <Mail className="h-4 w-4 text-blue-700" />
+                    <span className="text-gray-600 text-sm">kothrud@Littlelearningss.com</span>
+                  </div>
                 </div>
               </div>
             </Card>

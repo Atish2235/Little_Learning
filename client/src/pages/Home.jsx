@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import About from "../components/About.jsx";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Programs from "@/components/Programs";
-import AfterSchoolActivities from "@/components/AfterSchoolActivities";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -15,7 +14,6 @@ export default function Home() {
       <About />
       <WhyChooseUs />
       <Programs />
-      <AfterSchoolActivities />
       <Gallery />
       <Testimonials />
       <FAQ />
