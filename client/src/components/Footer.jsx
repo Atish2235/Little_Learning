@@ -185,7 +185,15 @@ export default function Footer() {
 
         {/* Bottom Line */}
         <div className="mt-12 sm:mt-16 text-center text-gray-700 text-xs sm:text-sm">
-          © {new Date().getFullYear()} <span className="font-semibold">Little Learnings</span>. All Rights Reserved.
+          <a
+            href="https://foxaircomm.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Fox Aircomm website in a new tab"
+            className="font-semibold hover:underline hover:text-purple-600 transition inline-block"
+          >
+            © {new Date().getFullYear()} © Website Design & Developed By Fox Aircomm Pvt Ltd | All Rights Reserved.
+          </a>
         </div>
       </div>
     </footer>
