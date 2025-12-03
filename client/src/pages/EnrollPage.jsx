@@ -1,5 +1,6 @@
 import React from "react";
 import Navigation from "@/components/Navigation";
+import { Link } from "react-router-dom";
 import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const EnrollPage = () => {
@@ -52,7 +53,7 @@ const EnrollPage = () => {
       </section>
 
       {/* Page Container */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-12 md:pt-16 pb-20">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 md:px-10 pt-12 md:pt-16 pb-20">
 
         {/* Intro Section */}
         <div className="text-center max-w-3xl mx-auto">
@@ -67,7 +68,7 @@ const EnrollPage = () => {
 
         {/* Enrollment Form */}
         <div
-          className="mt-14 bg-white/90 backdrop-blur-lg p-6 md:p-10 rounded-3xl shadow-xl border border-transparent relative
+          className="mt-14 bg-white/90 backdrop-blur-lg p-6 md:p-10 rounded-3xl shadow-xl border border-transparent relative max-w-2xl mx-auto
             before:content-[''] before:absolute before:inset-0 before:rounded-3xl
             before:bg-gradient-to-r before:from-pink-400 before:via-purple-400 before:to-blue-400 before:opacity-15 before:-z-10"
           style={{ zIndex: 1 }}
@@ -179,12 +180,12 @@ const EnrollPage = () => {
             Our counselors are here to guide you every step of the way.
           </p>
 
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-block mt-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-3 rounded-2xl text-lg shadow-lg hover:opacity-90 transition"
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </div>

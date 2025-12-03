@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function Footer() {
@@ -22,23 +22,26 @@ export default function Footer() {
         viewBox="0 0 1440 320"
         fill="currentColor"
       >
-        <path d="M0,192L80,197.3C160,203,320,213,480,224C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,0H0Z"></path>
+        <path d="M0,192L80,197.3C160,203,320,213,480,224C640,235,800,245,960,240C1120,235,1280,213,1360,202.7L1440,192L1440,0H0Z" />
       </svg>
 
       {/* Floating Blobs */}
-      <div className="absolute top-16 left-10 w-36 h-36 bg-pink-300/40 blur-3xl rounded-full animate-float"></div>
-      <div className="absolute bottom-16 right-10 w-40 h-40 bg-blue-300/40 blur-3xl rounded-full animate-float-delayed"></div>
+      <div className="absolute top-16 left-10 w-36 h-36 bg-pink-300/40 blur-3xl rounded-full animate-float" />
+      <div className="absolute bottom-16 right-10 w-40 h-40 bg-blue-300/40 blur-3xl rounded-full animate-float-delayed" />
 
-      <div className="max-w-8xl mx-auto px-4 relative z-10 text-gray-800 ml-8 pt-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ml-0 md:ml-8">
-          {/* Logo & Description */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-center">
-            <img
-              src="/attached_assets/generated_images/Little_logo.png"
-              alt="Little Learnings Logo"
-              className="w-auto h-24 sm:h-28 md:h-32 lg:h-36 object-contain mb-0 sm:mr-6 self-center"
-            />
-            <div className="text-center sm:text-left">
+      <div className="max-w-8xl mx-auto px-4 relative z-10 text-gray-800 ml-0 md:ml-8 pt-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+          {/* Logo & Description (replaced) */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left">
+            {/* wrapper reserves horizontal space and allows the logo to overlap upwards */}
+            <div className="relative w-44 md:w-60 flex-shrink-0 mb-0 sm:mb-0 sm:mr-6 overflow-visible">
+              <img
+                src="/attached_assets/generated_images/Little_logo.png"
+                alt="Little Learnings Logo"
+                className="absolute left-1/2 transform -translate-x-1/2 -top-16 md:top-12 w-40 md:w-full h-auto object-contain z-30 drop-shadow-lg"
+              />
+            </div>
+            <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-4 bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">
                 Little Learnings
               </h2>
@@ -49,71 +52,133 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center sm:items-center">
             <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-gray-800 text-center">Quick Links</h3>
-            <ul className="space-y-2 text-gray-700 text-center">
+            <ul className="space-y-2 text-gray-700 text-center w-full">
               <li>
-                <button type="button" onClick={() => goTo("home")} className="hover:text-purple-600 transition">
+                <button
+                  type="button"
+                  onClick={() => goTo("home")}
+                  aria-label="Go to Home"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
                   Home
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => setLocation("/about")} className="hover:text-purple-600 transition">
+                <button
+                  type="button"
+                  onClick={() => setLocation("/about")}
+                  aria-label="Go to About Us"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
                   About Us
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => goTo("programs")} className="hover:text-purple-600 transition">
+                <button
+                  type="button"
+                  onClick={() => setLocation("/programs")}
+                  aria-label="Go to Programs"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
                   Programs
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => goTo("why")} className="hover:text-purple-600 transition">
-                  Why Choose Us
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => goTo("gallery")} className="hover:text-purple-600 transition">
+                <button
+                  type="button"
+                  onClick={() => setLocation("/gallery")}
+                  aria-label="Go to Gallery"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
                   Gallery
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => goTo("contact")} className="hover:text-purple-600 transition">
+                <button
+                  type="button"
+                  onClick={() => setLocation("/contact")}
+                  aria-label="Go to Contact"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
                   Contact
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => setLocation("/branches")}
+                  aria-label="Go to Branches"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
+                  Branches
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => setLocation("/franchise")}
+                  aria-label="Go to Franchise"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
+                  Franchise
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => setLocation("/career")}
+                  aria-label="Go to Career"
+                  className="hover:text-purple-600 transition block w-full py-1"
+                >
+                  Career
                 </button>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start w-full">
             <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-gray-800 text-center md:text-left">Contact Info</h3>
             <div className="space-y-4 text-gray-700 w-full">
-              <div className="flex items-start gap-3 justify-center md:justify-start">
-                <Phone className="w-6 h-6 text-purple-600" />
-                <span>(555) 123-4567</span>
-              </div>
-              <div className="flex items-start gap-3 justify-center md:justify-start">
-                <Mail className="w-6 h-6 text-purple-600" />
-                <span>info@littlelearnings.com</span>
-              </div>
-              <div className="flex items-start gap-3 justify-center md:justify-start">
-                <MapPin className="w-6 h-6 text-purple-600" />
-                <span>
-                  123 Learning Lane <br /> Education City, EC 12345
-                </span>
-              </div>
-            </div>
-            {/* Social Icons */}
-            <div className="flex gap-4 mt-6 justify-center md:justify-start">
-              {[Facebook, Instagram].map((Icon, i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 bg-white shadow-md rounded-full flex items-center justify-center hover:scale-110 transition cursor-pointer"
-                >
-                  <Icon className="w-6 h-6 text-purple-600" />
+              {/* Warje */}
+              <div className="space-y-1 w-full">
+                <div className="font-semibold text-sm text-gray-800 text-center sm:text-left">Warje</div>
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 justify-center sm:justify-start text-center sm:text-left">
+                  <MapPin className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                  <span className="text-sm break-words">
+                    Sr. No. 138/2A/2/3 "Kalpataru" Near Awale Petrol Pump,<br />NDA Road, Warje, Pune - 411058
+                  </span>
                 </div>
-              ))}
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 justify-center sm:justify-start text-center sm:text-left">
+                  <Phone className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                  <a href="tel:+918446390854" className="text-sm hover:text-purple-600 transition block">+91 84463 90854</a>
+                </div>
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 justify-center sm:justify-start text-center sm:text-left">
+                  <Mail className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                  <a href="mailto:warje@littlelearningss.com" className="text-sm hover:text-purple-600 transition block">warje@littlelearningss.com</a>
+                </div>
+              </div>
+
+              {/* Kothrud */}
+              <div className="space-y-1 pt-3 w-full">
+                <div className="font-semibold text-sm text-gray-800 text-center sm:text-left">Kothrud</div>
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 justify-center sm:justify-start text-center sm:text-left">
+                  <MapPin className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                  <span className="text-sm break-words">
+                    Aviraj Hostel, Near No. 133/26,27, Ishan Building Prabha CHS,<br />DP Rd, Mayur Colony, Kothrud, Pune, Maharashtra 411038
+                  </span>
+                </div>
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 justify-center sm:justify-start text-center sm:text-left">
+                  <Phone className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                  <a href="tel:+919975518504" className="text-sm hover:text-purple-600 transition block">+91 99755 18504</a>
+                </div>
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 justify-center sm:justify-start text-center sm:text-left">
+                  <Mail className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                  <a href="mailto:kothrud@littlelearningss.com" className="text-sm hover:text-purple-600 transition block">kothrud@littlelearningss.com</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -126,3 +191,4 @@ export default function Footer() {
     </footer>
   );
 }
+

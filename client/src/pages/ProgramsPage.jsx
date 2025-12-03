@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "@/components/Navigation";
 import { Baby, BookOpen, School, GraduationCap, Sun, Music } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "../../attached_assets/asset/breadcrum.png";
 
 const ProgramsPage = () => {
@@ -152,12 +153,12 @@ const ProgramsPage = () => {
             Talk to our educators and find the perfect learning path.
           </p>
 
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-block mt-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-3 rounded-2xl text-lg shadow-lg hover:opacity-90 transition"
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </div>
