@@ -46,7 +46,7 @@ const ProgramsPage = () => {
       ],
     },
     {
-      title: "Day Care (1+ Years)",
+      title: "Day Care (1+ Year)",
       icon: <Sun size={40} className="text-yellow-500" />,
       points: [
         "Safe, caring & homely environment",

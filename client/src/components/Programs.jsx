@@ -56,7 +56,7 @@ export default function Programs() {
     },
     {
       title: "Day Care",
-      age: "2 Years onwards",
+      age: "1 Year onwards",
       image: "/attached_assets/asset/daycare.png",
       description: (
         <ul className="text-left list-disc list-inside space-y-1">
