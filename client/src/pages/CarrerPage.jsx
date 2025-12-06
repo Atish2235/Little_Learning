@@ -144,7 +144,7 @@ const CareerPage = () => {
         {/* Title */}
         <div className="relative z-20 w-full flex flex-col items-center justify-center px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg py-6">
-            Careers at Little Learnings
+            Careers at Little Learningss
           </h1>
           <nav className="mt-2 flex justify-center" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-sm sm:text-lg md:text-xl text-gray-500 font-medium bg-white/60 rounded-full px-3 py-1 shadow-sm backdrop-blur-sm">

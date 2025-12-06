@@ -2,8 +2,8 @@ import React from "react";
 import { FaWhatsapp, FaPhoneAlt, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function FloatingContactButtons() {
-  const whatsappNumber = "9373004289"; 
-  const callNumber = "+919373004289";  
+  const whatsappNumber = "8446390854"; 
+  const callNumber = "+918446390854";  
 
   return (
     <>

@@ -8,7 +8,7 @@ export default function WelcomePage({ onComplete }) {
     const timer = setTimeout(() => {
       setFadeOut(true);
       setTimeout(() => onComplete(), 250);
-    }, 900);
+    }, 9000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -48,39 +48,50 @@ export default function WelcomePage({ onComplete }) {
 
       {/* Main Content */}
       <div className="relative z-10 text-center animate-fade-in transition-all duration-300">
-        {/* Welcome Text */}
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 animate-slide-down tracking-tight drop-shadow-lg">
-          <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 text-transparent bg-clip-text">
-            Welcome to
-          </span>
-        </h1>
-
-        {/* Logo - free floating, no frame */}
-        <img
-          src="/attached_assets/asset/Little_logo.png"
-          alt="Little Learnings Logo"
-          className="w-80 h-80 md:w-[30rem] md:h-[30rem] object-contain drop-shadow-2xl mx-auto animate-float"
-          loading="eager"
-          style={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}
-        />
-        {/* Sparkle Effect */}
-        <div className="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <span className="text-3xl animate-bounce">✨</span>
+        {/* Heading wrapped in its own div (reduced bottom margin) */}
+        <div className="mb-1 animate-slide-down">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 text-transparent bg-clip-text">
+              Welcome to
+            </span>
+          </h1>
         </div>
 
-        {/* Subtitle */}
-        <p className="mt-4 text-xl md:text-2xl font-serif text-gray-700 animate-slide-up drop-shadow-sm">
-          Where Little Minds{" "}
-          <span className="font-bold text-pink-500">Grow Big Dreams</span>{" "}
-          <span role="img" aria-label="rainbow">
-            🌈
-          </span>
-        </p>
+        {/* Logo wrapped in its own div (reduced gap and lifted slightly) */}
+  
+        <div className="mt-0  animate-float" >
+          
+          <img
+            src="/attached_assets/asset/Little_logo.png"
+            alt="Little Learnings Logo"
+            className="w-80 h-80 md:w-[30rem] md:h-[30rem] object-contain drop-shadow-2xl"
+            loading="eager"
+          />
+        </div>
 
-        {/* Click hint */}
-        <p className="mt-3 text-xs text-gray-500 animate-pulse">
-          Click anywhere to continue...
-        </p>
+        {/* Sparkle Effect in its own wrapper (moved up, tightened spacing) */}
+        <div className="relative mb-0 pointer-events-none">
+   
+            <span className="text-3xl animate-bounce">✨</span>
+        </div>
+
+        {/* Subtitle in its own div (reduced spacing) */}
+        <div className="mb-1 animate-slide-up">
+          <p className="mt-1 text-xl md:text-2xl font-serif text-gray-700 drop-shadow-sm">
+            Where Little Minds{" "}
+            <span className="font-bold text-pink-500">Grow Big Dreams</span>{" "}
+            <span role="img" aria-label="rainbow">
+              🌈
+            </span>
+          </p>
+        </div>
+
+        {/* Click hint in its own div (smaller top margin) */}
+        <div className="mt-1">
+          <p className="mt-1 text-xs text-gray-500 animate-pulse">
+            Click anywhere to continue...
+          </p>
+        </div>
       </div>
     </div>
   );

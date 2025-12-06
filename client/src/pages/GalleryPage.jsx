@@ -86,7 +86,7 @@ const GalleryPage = () => {
             Moments That Matter
           </h2>
           <p className="text-sm text-gray-600 mt-2">
-            Explore the wonderful moments captured at Little Learnings
+            Explore the wonderful moments captured at Little Learningss
           </p>
         </div>
 

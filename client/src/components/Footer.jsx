@@ -43,7 +43,7 @@ export default function Footer() {
             </div>
             <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold mb-2 sm:mb-4 bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">
-                Little Learnings
+                Little Learningss
               </h2>
               <p className="text-gray-700 font-serif leading-relaxed">
                 A joyful place where kids learn, explore, and grow with confidence, creativity, and curiosity.

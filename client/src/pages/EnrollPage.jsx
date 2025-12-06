@@ -60,7 +60,7 @@ const EnrollPage = () => {
             Begin Your Child’s Learning Journey With Us
           </h2>
           <p className="text-gray-700 mt-4">
-            Little Learnings provides a warm, nurturing, value-driven environment where children develop confidence, curiosity and lifelong learning habits.
+            Little Learningss provides a warm, nurturing, value-driven environment where children develop confidence, curiosity and lifelong learning habits.
             Fill out the enrollment form to begin the admission process.
           </p>
         </div>

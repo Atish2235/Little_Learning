@@ -129,7 +129,7 @@ const BranchesPage = () => {
         {/* Add New Branch CTA */}
         <div className="text-center mt-20">
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Want Little Learnings in Your City?
+            Want Little Learningss in Your City?
           </h2>
           <p className="text-gray-700 mt-2">
             We’re expanding! Partner with us to bring quality early education to more children.
